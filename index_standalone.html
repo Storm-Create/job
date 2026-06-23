@@ -251,8 +251,39 @@ footer.site{background:var(--navy-900);color:#b9c8da;padding:3rem 0 1.6rem}
 .float .tg{background:#2aabee}
 .float a svg{width:26px;height:26px;fill:#fff}
 
+
+/* ============ GALLERY + LIGHTBOX ============ */
+#gallery .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.shot{position:relative;display:block;width:100%;margin:0;padding:0;border:0;cursor:pointer;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);aspect-ratio:4/3;font-family:inherit;box-shadow:0 12px 32px -22px rgba(14,38,66,.55)}
+.shot .photo{width:100%;height:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.shot:hover .photo{transform:scale(1.07)}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .9rem;background:linear-gradient(transparent,rgba(11,28,48,.85));color:#fff;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:1.02rem;display:flex;align-items:center;gap:.6rem;text-align:left}
+.shot .cap .cn{color:var(--orange);font-size:.84rem;flex:none}
+.shot .zoom{position:absolute;top:.85rem;right:.85rem;z-index:2;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.94);display:grid;place-items:center;opacity:0;transform:scale(.7) translateY(-4px);transition:opacity .25s ease,transform .25s ease}
+.shot:hover .zoom,.shot:focus-visible .zoom{opacity:1;transform:none}
+.shot .zoom svg{width:18px;height:18px;stroke:var(--navy-800);fill:none}
+.shot:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+.lb{position:fixed;inset:0;z-index:130;background:rgba(8,18,30,.93);display:none;align-items:center;justify-content:center;padding:5vh 5vw;opacity:0;transition:opacity .28s ease}
+.lb.open{display:flex}
+.lb.in{opacity:1}
+.lb-stage{max-width:1020px;width:100%}
+.lb-frame{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);background:#0e2236;transform:scale(.95);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
+.lb.in .lb-frame{transform:none}
+.lb-frame .photo{width:100%;height:auto;display:block}
+.lb-cap{display:flex;justify-content:space-between;align-items:center;gap:1rem;color:#fff;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:1rem;font-size:1.1rem}
+.lb-cap #lbCounter{color:#9fb2c9;font-size:.95rem;flex:none}
+.lb-close,.lb-nav{position:fixed;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;border-radius:50%;display:grid;place-items:center;transition:background .2s ease,transform .2s ease;z-index:2}
+.lb-close:hover{background:rgba(255,255,255,.26);transform:scale(1.07)}
+.lb-close{top:20px;right:24px;width:48px;height:48px;font-size:1.8rem;line-height:1}
+.lb-nav{top:50%;transform:translateY(-50%);width:54px;height:54px;font-size:2rem;line-height:1}
+.lb-nav:hover{background:rgba(255,255,255,.26);transform:translateY(-50%) scale(1.07)}
+.lb-prev{left:18px}.lb-next{right:18px}
+body.lb-lock{overflow:hidden}
+
 @media (max-width:980px){
   .services,.steps,.adv{grid-template-columns:1fr 1fr}
+  #gallery .gallery-grid{grid-template-columns:1fr 1fr}
   .calc{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
 }
@@ -267,6 +298,9 @@ footer.site{background:var(--navy-900);color:#b9c8da;padding:3rem 0 1.6rem}
   nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 6vw 1rem;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   nav.main.open a{padding:.85rem 0;width:100%;border-bottom:1px solid var(--line)}
   .services,.steps,.adv,.stats{grid-template-columns:1fr}
+  #gallery .gallery-grid{grid-template-columns:1fr}
+  .lb-nav{width:44px;height:44px;font-size:1.6rem}
+  .lb-close{width:42px;height:42px;top:12px;right:14px}
   .stats .st{display:flex;align-items:baseline;gap:.8rem}
   .stats .st .v{font-size:1.5rem}
 }
@@ -380,6 +414,7 @@ nav.main a:hover::after{width:100%}
       <a href="#calculator">Калькулятор</a>
       <a href="#prices">Цены</a>
       <a href="#process">Как работаем</a>
+      <a href="#gallery">Работы</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <div class="head-cta">
@@ -552,6 +587,217 @@ nav.main a:hover::after{width:100%}
   </div>
 </section>
 
+  <!-- gallery -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Наши работы</span>
+        <h2>Этапы работ на площадке</h2>
+        <p>От подготовки основания до сдачи объекта. Нажмите на фото, чтобы открыть его в полном размере.</p>
+      </div>
+      <div class="gallery-grid">
+      <button class="shot" type="button" data-title="Земляные работы" aria-label="Открыть фото: Земляные работы">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Земляные работы — экскаватор на площадке">
+  <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#sky1)"/>
+  <circle cx="660" cy="110" r="46" fill="#fdf0e2"/>
+  <path d="M0 390 Q200 350 420 380 T800 372 V600 H0Z" fill="#c9a878"/>
+  <path d="M0 430 H800 V600 H0Z" fill="#a9824f"/>
+  <path d="M120 430 L300 430 L260 540 L160 540 Z" fill="#7d5d34"/>
+  <ellipse cx="640" cy="470" rx="120" ry="34" fill="#8a6a3d"/>
+  <ellipse cx="640" cy="458" rx="86" ry="26" fill="#9c7b49"/>
+  <!-- excavator -->
+  <g>
+    <rect x="430" y="470" width="220" height="40" rx="20" fill="#2a313a"/>
+    <circle cx="455" cy="490" r="16" fill="#444c57"/><circle cx="540" cy="490" r="16" fill="#444c57"/><circle cx="625" cy="490" r="16" fill="#444c57"/>
+    <rect x="470" y="406" width="140" height="74" rx="10" fill="#ef6a1f"/>
+    <rect x="486" y="420" width="58" height="44" rx="6" fill="#cfe3f5"/>
+    <rect x="486" y="420" width="58" height="44" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
+    <rect x="556" y="392" width="20" height="20" rx="3" fill="#13365c"/>
+    <!-- boom -->
+    <path d="M548 430 L640 360 L690 380" fill="none" stroke="#2f6fae" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M690 380 L700 440" fill="none" stroke="#2f6fae" stroke-width="16" stroke-linecap="round"/>
+    <path d="M676 448 q40 6 44 -28 l-10 -2 q-4 22 -30 18 z" fill="#13365c"/>
+    <path d="M676 448 l-6 18 l50 0 l-4 -22 z" fill="#1b4a7e"/>
+  </g>
+  <rect x="0" y="560" width="800" height="40" fill="#13365c" opacity="0.06"/>
+</svg>
+        <span class="cap"><span class="cn">01</span>Земляные работы</span>
+      </button>
+      <button class="shot" type="button" data-title="Устройство основания" aria-label="Открыть фото: Устройство основания">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Устройство основания — отсыпка и уплотнение">
+  <defs>
+    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
+    <pattern id="gravel2" width="22" height="18" patternUnits="userSpaceOnUse"><rect width="22" height="18" fill="#b7bfc9"/><circle cx="5" cy="5" r="2.4" fill="#969fab"/><circle cx="16" cy="11" r="2.8" fill="#8b95a2"/><circle cx="11" cy="3" r="1.8" fill="#a7b0bb"/></pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky2)"/>
+  <rect x="0" y="360" width="800" height="60" fill="#d8c9a8"/>
+  <rect x="0" y="408" width="800" height="60" fill="url(#gravel2)"/>
+  <rect x="0" y="468" width="800" height="132" fill="#c2cad4"/>
+  <rect x="0" y="468" width="800" height="132" fill="url(#gravel2)" opacity="0.5"/>
+  <!-- string line -->
+  <rect x="120" y="320" width="8" height="100" fill="#13365c"/>
+  <rect x="640" y="320" width="8" height="100" fill="#13365c"/>
+  <line x1="124" y1="326" x2="644" y2="326" stroke="#ef6a1f" stroke-width="3"/>
+  <!-- plate compactor -->
+  <g>
+    <rect x="470" y="420" width="150" height="26" rx="6" fill="#2a313a"/>
+    <rect x="492" y="372" width="92" height="52" rx="8" fill="#ef6a1f"/>
+    <rect x="506" y="384" width="64" height="20" rx="4" fill="#13365c"/>
+    <path d="M584 392 L660 330" stroke="#1b4a7e" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="664" cy="324" r="10" fill="#13365c"/>
+  </g>
+  <!-- worker with rake -->
+  <g transform="translate(230,320)">
+    <circle cx="0" cy="0" r="16" fill="#f4c89b"/><rect x="-7" y="-22" width="14" height="12" rx="4" fill="#ef6a1f"/>
+    <rect x="-12" y="14" width="24" height="46" rx="8" fill="#2f6fae"/>
+    <rect x="-12" y="60" width="10" height="40" rx="4" fill="#13365c"/><rect x="2" y="60" width="10" height="40" rx="4" fill="#13365c"/>
+    <line x1="10" y1="24" x2="70" y2="92" stroke="#8a6a3d" stroke-width="6" stroke-linecap="round"/>
+    <rect x="64" y="92" width="34" height="8" rx="3" fill="#444c57"/>
+  </g>
+</svg>
+        <span class="cap"><span class="cn">02</span>Устройство основания</span>
+      </button>
+      <button class="shot" type="button" data-title="Укладка асфальта" aria-label="Открыть фото: Укладка асфальта">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Укладка асфальта — асфальтоукладчик">
+  <defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbddf0"/><stop offset="1" stop-color="#edf3f9"/></linearGradient>
+  <linearGradient id="asph3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a444f"/><stop offset="1" stop-color="#262d35"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#sky3)"/>
+  <rect x="0" y="380" width="800" height="220" fill="#cdd4dc"/>
+  <!-- fresh asphalt strip -->
+  <path d="M0 470 L520 470 L520 560 L0 560 Z" fill="url(#asph3)"/>
+  <path d="M0 470 L520 470 L520 482 L0 482 Z" fill="#4a545f" opacity="0.7"/>
+  <!-- heat lines -->
+  <g stroke="#ef6a1f" stroke-width="3" opacity="0.5" fill="none" stroke-linecap="round">
+    <path d="M120 462 q8 -14 0 -28"/><path d="M210 462 q8 -14 0 -28"/><path d="M300 462 q8 -14 0 -28"/>
+  </g>
+  <!-- paver machine -->
+  <g>
+    <rect x="520" y="430" width="220" height="100" rx="10" fill="#ef6a1f"/>
+    <path d="M740 440 L788 460 L788 520 L740 530 Z" fill="#13365c"/>
+    <rect x="544" y="446" width="80" height="46" rx="6" fill="#cfe3f5"/>
+    <rect x="544" y="446" width="80" height="46" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
+    <rect x="640" y="452" width="60" height="40" rx="6" fill="#1b4a7e"/>
+    <rect x="500" y="530" width="260" height="22" rx="8" fill="#2a313a"/>
+    <circle cx="540" cy="541" r="14" fill="#444c57"/><circle cx="600" cy="541" r="14" fill="#444c57"/><circle cx="700" cy="541" r="14" fill="#444c57"/>
+    <rect x="600" y="404" width="14" height="36" fill="#444c57"/><ellipse cx="607" cy="400" rx="12" ry="6" fill="#9aa3ad" opacity="0.7"/>
+  </g>
+</svg>
+        <span class="cap"><span class="cn">03</span>Укладка асфальта</span>
+      </button>
+      <button class="shot" type="button" data-title="Уплотнение катком" aria-label="Открыть фото: Уплотнение катком">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Уплотнение асфальта дорожным катком">
+  <defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbddf0"/><stop offset="1" stop-color="#edf3f9"/></linearGradient>
+  <linearGradient id="drum4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe4ea"/><stop offset="0.5" stop-color="#aab2bc"/><stop offset="1" stop-color="#7e8893"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#sky4)"/>
+  <rect x="0" y="400" width="800" height="200" fill="#2f3841"/>
+  <rect x="0" y="400" width="800" height="14" fill="#454f59" opacity="0.7"/>
+  <!-- shine -->
+  <path d="M60 470 L760 470" stroke="#5b6671" stroke-width="2" opacity="0.6"/>
+  <path d="M60 510 L760 510" stroke="#5b6671" stroke-width="2" opacity="0.6"/>
+  <!-- tandem roller -->
+  <g>
+    <ellipse cx="300" cy="500" rx="58" ry="58" fill="url(#drum4)"/>
+    <ellipse cx="300" cy="500" rx="58" ry="58" fill="none" stroke="#5e6873" stroke-width="3"/>
+    <ellipse cx="560" cy="500" rx="58" ry="58" fill="url(#drum4)"/>
+    <ellipse cx="560" cy="500" rx="58" ry="58" fill="none" stroke="#5e6873" stroke-width="3"/>
+    <rect x="296" y="430" width="20" height="70" fill="#13365c"/>
+    <rect x="544" y="430" width="20" height="70" fill="#13365c"/>
+    <rect x="300" y="392" width="260" height="70" rx="12" fill="#ef6a1f"/>
+    <rect x="324" y="406" width="84" height="44" rx="6" fill="#cfe3f5"/>
+    <rect x="324" y="406" width="84" height="44" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
+    <rect x="430" y="392" width="110" height="22" rx="8" fill="#13365c"/>
+    <rect x="396" y="358" width="70" height="40" rx="10" fill="#1b4a7e"/>
+  </g>
+</svg>
+        <span class="cap"><span class="cn">04</span>Уплотнение катком</span>
+      </button>
+      <button class="shot" type="button" data-title="Мощение брусчатки" aria-label="Открыть фото: Мощение брусчатки">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Мощение брусчатки">
+  <defs>
+    <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
+    <pattern id="brick5" width="60" height="36" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)">
+      <rect width="60" height="36" fill="#c25a3a"/>
+      <rect x="1" y="1" width="28" height="16" rx="2" fill="#d76e4a"/>
+      <rect x="31" y="1" width="28" height="16" rx="2" fill="#c9603f"/>
+      <rect x="16" y="19" width="28" height="16" rx="2" fill="#cf6543"/>
+      <rect x="-14" y="19" width="28" height="16" rx="2" fill="#d76e4a"/>
+      <rect x="46" y="19" width="28" height="16" rx="2" fill="#d76e4a"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky5)"/>
+  <rect x="0" y="350" width="800" height="250" fill="#cbc1ad"/>
+  <!-- laid pavers area -->
+  <path d="M0 420 L520 420 L520 600 L0 600 Z" fill="url(#brick5)"/>
+  <!-- sand bed exposed -->
+  <path d="M520 420 L800 420 L800 600 L520 600 Z" fill="#d8c9a8"/>
+  <g stroke="#c7b791" stroke-width="2"><line x1="540" y1="460" x2="780" y2="460"/><line x1="540" y1="520" x2="780" y2="520"/></g>
+  <!-- curb -->
+  <rect x="0" y="404" width="800" height="18" fill="#aeb6bf"/>
+  <rect x="0" y="404" width="800" height="6" fill="#c6cdd5"/>
+  <!-- pallet of pavers -->
+  <g transform="translate(650,330)"><rect x="0" y="40" width="90" height="14" fill="#8a6a3d"/><rect x="6" y="8" width="78" height="34" fill="#c25a3a"/><g stroke="#9c4a30" stroke-width="2"><line x1="32" y1="8" x2="32" y2="42"/><line x1="58" y1="8" x2="58" y2="42"/><line x1="6" y1="25" x2="84" y2="25"/></g></g>
+  <!-- kneeling worker -->
+  <g transform="translate(420,330)">
+    <circle cx="0" cy="0" r="15" fill="#f4c89b"/><path d="M-14 -4 a14 14 0 0 1 28 0 z" fill="#ef6a1f"/>
+    <path d="M-10 12 q24 4 30 40 l-18 6 q-10 -26 -26 -28 z" fill="#2f6fae"/>
+    <rect x="0" y="54" width="40" height="12" rx="4" fill="#13365c"/>
+    <rect x="14" y="40" width="10" height="26" rx="4" fill="#13365c"/>
+    <line x1="18" y1="20" x2="44" y2="44" stroke="#f4c89b" stroke-width="9" stroke-linecap="round"/>
+    <rect x="40" y="40" width="20" height="12" rx="3" fill="#444c57"/>
+  </g>
+</svg>
+        <span class="cap"><span class="cn">05</span>Мощение брусчатки</span>
+      </button>
+      <button class="shot" type="button" data-title="Готовый объект" aria-label="Открыть фото: Готовый объект">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Готовое покрытие — сданный объект">
+  <defs><linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd6ef"/><stop offset="1" stop-color="#eaf2fa"/></linearGradient>
+  <linearGradient id="road6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46505b"/><stop offset="1" stop-color="#2b333c"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#sky6)"/>
+  <circle cx="120" cy="110" r="50" fill="#fdf0e2"/>
+  <!-- green sides -->
+  <rect x="0" y="360" width="800" height="240" fill="#9cc47e"/>
+  <!-- road perspective -->
+  <path d="M330 360 L470 360 L760 600 L40 600 Z" fill="url(#road6)"/>
+  <!-- curbs -->
+  <path d="M330 360 L320 360 L20 600 L70 600 Z" fill="#c6cdd5"/>
+  <path d="M470 360 L480 360 L780 600 L730 600 Z" fill="#c6cdd5"/>
+  <!-- center dashed line -->
+  <g fill="#f4f7fa">
+    <polygon points="396,372 404,372 404,392 395,392"/>
+    <polygon points="393,410 405,410 406,438 391,438"/>
+    <polygon points="389,462 407,462 409,500 386,500"/>
+    <polygon points="383,524 411,524 414,576 379,576"/>
+  </g>
+  <!-- trees -->
+  <g transform="translate(95,250)"><rect x="-6" y="60" width="12" height="40" fill="#7d5d34"/><circle cx="0" cy="40" r="40" fill="#5c9a47"/><circle cx="-22" cy="58" r="26" fill="#6aa854"/><circle cx="24" cy="56" r="24" fill="#6aa854"/></g>
+  <g transform="translate(690,270)"><rect x="-5" y="50" width="10" height="34" fill="#7d5d34"/><circle cx="0" cy="34" r="32" fill="#5c9a47"/><circle cx="20" cy="48" r="20" fill="#6aa854"/></g>
+  <!-- finished badge -->
+  <g transform="translate(400,330)"><circle cx="0" cy="0" r="30" fill="#ef6a1f"/><path d="M-13 0 l9 10 l18 -20" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
+        <span class="cap"><span class="cn">06</span>Готовый объект</span>
+      </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- lightbox -->
+  <div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <button class="lb-close" id="lbClose" aria-label="Закрыть">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущее фото">&#8249;</button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">&#8250;</button>
+    <div class="lb-stage">
+      <div class="lb-frame" id="lbFrame"></div>
+      <div class="lb-cap"><span id="lbTitle"></span><span id="lbCounter"></span></div>
+    </div>
+  </div>
+
 <!-- advantages -->
 <section id="advantages">
   <div class="wrap">
@@ -678,7 +924,7 @@ nav.main a:hover::after{width:100%}
 
   /* scroll reveal with stagger */
   if (!reduceMotion && 'IntersectionObserver' in window){
-    var revealSel = ['.sec-head','.svc','.step','.adv .a','.calc-form','.calc-result','.acc','.price-note','.cinfo .ch','.cform','.msg-row'];
+    var revealSel = ['.sec-head','.svc','.step','.shot','.adv .a','.calc-form','.calc-result','.acc','.price-note','.cinfo .ch','.cform','.msg-row'];
     var nodes = [];
     revealSel.forEach(function(s){ [].forEach.call(document.querySelectorAll(s), function(n){ nodes.push(n); }); });
     nodes.forEach(function(n){ n.classList.add('reveal'); });
@@ -719,6 +965,44 @@ nav.main a:hover::after{width:100%}
       }, {threshold:0.4});
       co.observe(statsBox);
     } else { runCounters(); }
+  }
+
+  /* ---------- gallery lightbox ---------- */
+  var shots = [].slice.call(document.querySelectorAll('.shot'));
+  if (shots.length){
+    var byId = function(id){ return document.getElementById(id); };
+    var lb = byId('lb'), lbFrame = byId('lbFrame'), lbTitle = byId('lbTitle'), lbCounter = byId('lbCounter'), cur = 0;
+    function showShot(i){
+      cur = (i + shots.length) % shots.length;
+      var s = shots[cur];
+      lbFrame.innerHTML = s.querySelector('.photo').outerHTML;
+      lbTitle.textContent = s.getAttribute('data-title');
+      lbCounter.textContent = (cur + 1) + ' / ' + shots.length;
+    }
+    function openLb(i){
+      showShot(i);
+      lb.classList.add('open');
+      document.body.classList.add('lb-lock');
+      lb.setAttribute('aria-hidden','false');
+      requestAnimationFrame(function(){ lb.classList.add('in'); });
+    }
+    function closeLb(){
+      lb.classList.remove('in');
+      document.body.classList.remove('lb-lock');
+      lb.setAttribute('aria-hidden','true');
+      setTimeout(function(){ lb.classList.remove('open'); }, 280);
+    }
+    shots.forEach(function(s, i){ s.addEventListener('click', function(){ openLb(i); }); });
+    byId('lbClose').addEventListener('click', closeLb);
+    byId('lbPrev').addEventListener('click', function(){ showShot(cur - 1); });
+    byId('lbNext').addEventListener('click', function(){ showShot(cur + 1); });
+    lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function(e){
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') closeLb();
+      else if(e.key === 'ArrowLeft') showShot(cur - 1);
+      else if(e.key === 'ArrowRight') showShot(cur + 1);
+    });
   }
 
   /* ---- pricing data (все цены снижены на 50 ₽) ---- */
