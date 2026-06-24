@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ГРАД СТРОЙ 5 — асфальтирование, крошка, брусчатка под ключ</title>
-<meta name="description" content="Строительная компания ГРАД СТРОЙ 5: асфальт от 600 ₽/м², крошка от 300 ₽/м², брусчатка от 700 ₽/м². Своя техника, бесплатный замер, гарантия 12 месяцев. Строим будущее вместе." />
+<meta name="description" content="Строительная компания ГРАД СТРОЙ 5: асфальт от 600 ₽/м², крошка от 300 ₽/м², брусчатка от 700 ₽/м². Своя техника, бесплатный замер, гарантия 1–3 года в зависимости от вида работ. Строим будущее вместе." />
 <link rel="icon" href="assets/favicon.png" type="image/png" />
 <meta property="og:title" content="ГРАД СТРОЙ 5 — строим будущее вместе" />
-<meta property="og:description" content="Асфальт, крошка, брусчатка и бордюры под ключ. Своя техника, фиксированная смета, гарантия 12 месяцев." />
+<meta property="og:description" content="Асфальт, крошка, брусчатка и бордюры под ключ. Своя техника, фиксированная смета, гарантия 1–3 года." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ru_RU" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +19,7 @@
   "@type":"GeneralContractor",
   "name":"ГРАД СТРОЙ 5",
   "slogan":"Строим будущее вместе",
-  "description":"Асфальтирование, асфальтовая крошка, брусчатка и бордюры под ключ. Своя техника, гарантия 12 месяцев.",
+  "description":"Асфальтирование, асфальтовая крошка, брусчатка и бордюры под ключ. Своя техника, гарантия 1–3 года в зависимости от вида работ.",
   "telephone":"+79850066145",
   "email":"hovhanyana18@mail.ru",
   "priceRange":"₽₽",
@@ -254,11 +254,15 @@ footer.site{background:var(--navy-900);color:#b9c8da;padding:3rem 0 1.6rem}
 
 /* ============ GALLERY + LIGHTBOX ============ */
 #gallery .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.shot{position:relative;display:block;width:100%;margin:0;padding:0;border:0;cursor:pointer;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);aspect-ratio:4/3;font-family:inherit;box-shadow:0 12px 32px -22px rgba(14,38,66,.55)}
+.shot{position:relative;display:block;width:100%;margin:0;padding:0;border:0;cursor:pointer;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);aspect-ratio:3/2;font-family:inherit;box-shadow:0 12px 32px -22px rgba(14,38,66,.55)}
 .shot .photo{width:100%;height:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
 .shot:hover .photo{transform:scale(1.07)}
 .shot .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .9rem;background:linear-gradient(transparent,rgba(11,28,48,.85));color:#fff;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:1.02rem;display:flex;align-items:center;gap:.6rem;text-align:left}
 .shot .cap .cn{color:var(--orange);font-size:.84rem;flex:none}
+.shot .cap-desc{position:absolute;left:0;right:0;bottom:0;padding:0 1.1rem .85rem 2.3rem;color:#cfdcec;font-size:.78rem;font-family:"Inter",sans-serif;font-weight:400;text-transform:none;letter-spacing:normal;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease;line-height:1.4}
+.shot:hover .cap{padding-bottom:2.6rem}
+.shot:hover .cap-desc{opacity:1;transform:none}
+.shot .cap{transition:padding-bottom .22s ease}
 .shot .zoom{position:absolute;top:.85rem;right:.85rem;z-index:2;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.94);display:grid;place-items:center;opacity:0;transform:scale(.7) translateY(-4px);transition:opacity .25s ease,transform .25s ease}
 .shot:hover .zoom,.shot:focus-visible .zoom{opacity:1;transform:none}
 .shot .zoom svg{width:18px;height:18px;stroke:var(--navy-800);fill:none}
@@ -271,8 +275,11 @@ footer.site{background:var(--navy-900);color:#b9c8da;padding:3rem 0 1.6rem}
 .lb-frame{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);background:#0e2236;transform:scale(.95);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
 .lb.in .lb-frame{transform:none}
 .lb-frame .photo{width:100%;height:auto;display:block}
-.lb-cap{display:flex;justify-content:space-between;align-items:center;gap:1rem;color:#fff;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:1rem;font-size:1.1rem}
-.lb-cap #lbCounter{color:#9fb2c9;font-size:.95rem;flex:none}
+.lb-cap{display:flex;justify-content:space-between;align-items:flex-start;gap:1.2rem;color:#fff;margin-top:1rem}
+.lb-cap-text{display:flex;flex-direction:column;gap:.3rem}
+.lb-cap-text #lbTitle{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:1.1rem}
+.lb-cap-text #lbDesc{font-family:"Inter",sans-serif;font-weight:400;font-size:.92rem;color:#b6c6da;max-width:560px}
+.lb-cap #lbCounter{color:#9fb2c9;font-size:.95rem;flex:none;font-family:"Oswald",sans-serif;font-weight:600;white-space:nowrap;margin-top:.2rem}
 .lb-close,.lb-nav{position:fixed;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;border-radius:50%;display:grid;place-items:center;transition:background .2s ease,transform .2s ease;z-index:2}
 .lb-close:hover{background:rgba(255,255,255,.26);transform:scale(1.07)}
 .lb-close{top:20px;right:24px;width:48px;height:48px;font-size:1.8rem;line-height:1}
@@ -301,6 +308,10 @@ body.lb-lock{overflow:hidden}
   #gallery .gallery-grid{grid-template-columns:1fr}
   .lb-nav{width:44px;height:44px;font-size:1.6rem}
   .lb-close{width:42px;height:42px;top:12px;right:14px}
+  .lb{padding:8vh 12px}
+  .lb-prev{left:4px}.lb-next{right:4px}
+  .lb-cap{flex-direction:column;gap:.3rem}
+  .lb-cap #lbCounter{margin-top:0}
   .stats .st{display:flex;align-items:baseline;gap:.8rem}
   .stats .st .v{font-size:1.5rem}
 }
@@ -383,6 +394,116 @@ nav.main a:hover::after{width:100%}
   *{scroll-behavior:auto;transition:none!important;animation:none!important}
   .reveal,.hero-inner>*,.stats{opacity:1!important;transform:none!important}
 }
+
+/* ==================================================================
+   ВИЗУАЛЬНЫЕ УЛУЧШЕНИЯ — фирменный мотив «дорожная разметка»,
+   глубина, градиенты, акценты. (добавлено поверх базовых стилей)
+   ================================================================== */
+:root{
+  --road-dash:repeating-linear-gradient(90deg,#f4a261 0 34px,transparent 34px 64px);
+  --grad-orange:linear-gradient(135deg,#ff8a3d,#ef6a1f 55%,#d6560f);
+  --grad-steel:linear-gradient(135deg,#3f86c9,#1b4a7e);
+  --shadow-lg:0 30px 70px -34px rgba(14,38,66,.6);
+}
+
+/* ===== HERO: глубина, свечение, дорожная полоса снизу ===== */
+.hero{background:
+   radial-gradient(120% 90% at 82% -10%, #1c4f86 0%, transparent 55%),
+   linear-gradient(180deg,#0e2642 0%, #0b1f37 100%)}
+.hero-glow{position:absolute;right:-8%;top:-20%;width:60vw;height:60vw;max-width:740px;max-height:740px;
+   background:radial-gradient(circle at 50% 40%, rgba(239,106,31,.5), transparent 70%);
+   opacity:.5;pointer-events:none;animation:glowPulse 7s ease-in-out infinite;z-index:0}
+@keyframes glowPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.6;transform:scale(1.06)}}
+.hero .hex{opacity:.10}
+.hero .road{position:absolute;left:0;right:0;bottom:0;height:62px;z-index:1;
+   background:linear-gradient(180deg,transparent,rgba(4,12,22,.6));pointer-events:none;overflow:hidden}
+.hero .road::after{content:"";position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);
+   background:var(--road-dash);opacity:.85;
+   -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+           mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+   animation:roadMove 5.5s linear infinite}
+@keyframes roadMove{to{background-position:64px 0}}
+.hero h1 .accent{background:var(--grad-orange);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;color:transparent}
+.hero-trust{display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;margin-top:1.7rem}
+.hero-trust .t{display:inline-flex;align-items:center;gap:.5rem;color:#cdd9e8;font-size:.93rem;font-weight:500}
+.hero-trust .t svg{width:18px;height:18px;stroke:var(--orange);fill:none;flex:none}
+.hero-inner>*:nth-child(5){animation-delay:.58s}
+
+/* ===== STATS как стеклянные карточки с оранжевым акцентом ===== */
+.stats{background:transparent;border:0;gap:1rem;border-radius:0;overflow:visible}
+.stats .st{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:12px;
+   position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.stats .st::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--grad-orange)}
+.stats .st .v{font-size:2.05rem}
+.stats .st:hover{transform:translateY(-3px);border-color:rgba(239,106,31,.5)}
+
+/* ===== SERVICE: градиентная иконка, бейдж цены, гекс-водяной знак ===== */
+.svc{border-radius:16px}
+.svc .ico{background:var(--grad-steel);box-shadow:0 12px 24px -12px rgba(27,74,126,.7)}
+.svc .ico svg{stroke:#fff}
+.svc:hover .ico{background:var(--grad-orange);box-shadow:0 14px 26px -10px rgba(239,106,31,.65)}
+.svc:hover .ico svg{stroke:#fff}
+.svc .from{display:inline-block;align-self:flex-start;background:#fff4ec;color:var(--orange-600);border:1px solid #f6d3b9;
+   padding:.3rem .8rem;border-radius:999px;font-size:.9rem;margin:.55rem 0 1.1rem}
+.svc::after{content:"";position:absolute;right:-34px;bottom:-34px;width:150px;height:150px;
+   background:url('assets/emblem.png') center/contain no-repeat;opacity:.05;filter:grayscale(1);
+   pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+.svc:hover::after{opacity:.10;transform:rotate(8deg) scale(1.05)}
+.svc:hover{box-shadow:var(--shadow-lg)}
+
+/* ===== PRICE-NOTE: чуть выразительнее ===== */
+.price-note{background:linear-gradient(135deg,#fff7f0,#fff4ec);box-shadow:0 14px 30px -22px rgba(239,106,31,.5)}
+
+/* ===== PROCESS: верхний акцент-бар и градиентные номера ===== */
+.step{border-radius:16px}
+.step .n{background:var(--grad-orange);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;color:transparent;opacity:.22;font-size:3rem}
+.step:hover .n{opacity:.5}
+.step::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:0;height:3px;background:var(--grad-orange);
+   transform:scaleX(0);transform-origin:left;transition:transform .3s ease;border-radius:3px}
+.step:hover::before{transform:scaleX(1)}
+
+/* ===== ADVANTAGES: иконки в цветных чипах ===== */
+.adv .a{border-radius:14px}
+.adv .a svg{box-sizing:content-box;width:24px;height:24px;padding:9px;border-radius:11px;
+   background:#fff4ec;stroke:var(--orange);transition:background .22s ease,stroke .22s ease}
+.adv .a:hover svg{background:var(--orange);stroke:#fff}
+
+/* ===== CALCULATOR: тёплое свечение у блока результата ===== */
+.calc-result{box-shadow:0 0 0 1px rgba(239,106,31,.18),0 30px 60px -30px rgba(239,106,31,.4)}
+
+/* ===== FOOTER: дорожная разметка по верхнему краю ===== */
+footer.site{position:relative}
+footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+   background:var(--road-dash);opacity:.8}
+
+@media (max-width:760px){
+  .hero-trust{gap:.5rem 1.1rem}
+  .hero .road{height:46px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-glow,.hero .road::after{animation:none!important}
+}
+
+/* ===== ТЕМАТИЧЕСКИЙ СКРОЛЛБАР: асфальт с разметкой + трактор ===== */
+@supports not selector(::-webkit-scrollbar){
+  html{scrollbar-width:thin;scrollbar-color:#ef6a1f #2b3037}
+}
+::-webkit-scrollbar{width:20px;height:20px}
+::-webkit-scrollbar-track{
+  background:
+    repeating-linear-gradient(0deg,#f4c542 0 12px,transparent 12px 28px) center/3px 100% no-repeat,
+    linear-gradient(90deg,#363b42 0 3px,#2a2e34 3px,#22262b 50%,#2a2e34,#363b42 calc(100% - 3px));
+}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-thumb{
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2072%2064%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22body%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.35%22%20stop-color%3D%22%23f57f24%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22hood%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffd0a0%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.4%22%20stop-color%3D%22%23f78a30%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23cf5810%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22cab%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231f4e85%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230e2642%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22glass%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23dff0ff%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.5%22%20stop-color%3D%22%239cc3ec%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%235d8cc0%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22tire%22%20cx%3D%220.38%22%20cy%3D%220.34%22%20r%3D%220.75%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233a424d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%23222831%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2311151b%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rim%22%20cx%3D%220.4%22%20cy%3D%220.35%22%20r%3D%220.7%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22shadow%22%20cx%3D%220.5%22%20cy%3D%220.5%22%20r%3D%220.5%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220.45%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20ground%20shadow%20--%3E%0A%20%20%3Cellipse%20cx%3D%2236%22%20cy%3D%2258%22%20rx%3D%2230%22%20ry%3D%225.5%22%20fill%3D%22url%28%23shadow%29%22/%3E%0A%0A%20%20%3C%21--%20exhaust%20stack%20--%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%224.5%22%20height%3D%2214%22%20rx%3D%222.2%22%20fill%3D%22%233a4250%22/%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%222%22%20height%3D%2214%22%20rx%3D%221%22%20fill%3D%22%235b6776%22/%3E%0A%20%20%3Cellipse%20cx%3D%2224.2%22%20cy%3D%229%22%20rx%3D%223.2%22%20ry%3D%221.3%22%20fill%3D%22%231b2028%22/%3E%0A%0A%20%20%3C%21--%20rear%20big%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.5%22/%3E%0A%20%20%3Cg%20stroke%3D%22%230e1218%22%20stroke-width%3D%222.2%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2220%22%20y1%3D%2226%22%20x2%3D%2220%22%20y2%3D%2230%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%2254%22%20x2%3D%2220%22%20y2%3D%2258%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%224%22%20y1%3D%2242%22%20x2%3D%228%22%20y2%3D%2242%22/%3E%3Cline%20x1%3D%2232%22%20y1%3D%2242%22%20x2%3D%2236%22%20y2%3D%2242%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%229%22%20y1%3D%2231%22%20x2%3D%2211.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2229%22%20y1%3D%2253%22%20x2%3D%2231%22%20y2%3D%2255%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2231%22%20y1%3D%2231%22%20x2%3D%2228.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2211%22%20y1%3D%2253%22%20x2%3D%229%22%20y2%3D%2255%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%228.5%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%223%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2237%22%20rx%3D%224%22%20ry%3D%222.4%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20front%20small%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.3%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%225%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%221.8%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2253%22%20cy%3D%2245%22%20rx%3D%222.6%22%20ry%3D%221.6%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20chassis%20bar%20--%3E%0A%20%20%3Crect%20x%3D%2218%22%20y%3D%2244%22%20width%3D%2240%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%2323303f%22/%3E%0A%0A%20%20%3C%21--%20cab%20--%3E%0A%20%20%3Cpath%20d%3D%22M14%2038%20V24%20a4%204%200%200%201%204-4%20h12%20l5%206%20v12%20z%22%20fill%3D%22url%28%23cab%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M17%2035%20V25%20a2%202%200%200%201%202-2%20h9%20l3.5%204.5%20V35%20z%22%20fill%3D%22url%28%23glass%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M19%2024%20L31%2033%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20opacity%3D%220.5%22%20stroke-linecap%3D%22round%22/%3E%0A%0A%20%20%3C%21--%20hood%20/%20engine%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2039%20V28%20a3%203%200%200%201%203-3%20h16%20a6%206%200%200%201%206%206%20v8%20a3%203%200%200%201-3%203%20z%22%20fill%3D%22url%28%23hood%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M34%2028%20a2%202%200%200%201%202-2%20h15%20a5%205%200%200%201%205%205%20v1%20H34%20z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.22%22/%3E%0A%20%20%3C%21--%20grille%20--%3E%0A%20%20%3Cg%20stroke%3D%22%237a3608%22%20stroke-width%3D%221.1%22%20opacity%3D%220.7%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2257%22%20y1%3D%2232%22%20x2%3D%2257%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2255%22%20y1%3D%2232%22%20x2%3D%2255%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2253%22%20y1%3D%2232%22%20x2%3D%2253%22%20y2%3D%2240%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3C%21--%20headlight%20--%3E%0A%20%20%3Ccircle%20cx%3D%2258.5%22%20cy%3D%2231%22%20r%3D%222.1%22%20fill%3D%22%23ffe08a%22%20stroke%3D%22%23b9842a%22%20stroke-width%3D%220.8%22/%3E%0A%20%20%3C%21--%20body%20main%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2050%20V40%20h20%20l5%204%20v6%20z%22%20fill%3D%22url%28%23body%29%22/%3E%0A%3C/svg%3E%0A") center/15px auto no-repeat, rgba(239,106,31,.18);
+  border-radius:9px;border:2px solid transparent;background-clip:padding-box;min-height:46px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2072%2064%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22body%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.35%22%20stop-color%3D%22%23f57f24%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22hood%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffd0a0%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.4%22%20stop-color%3D%22%23f78a30%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23cf5810%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22cab%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231f4e85%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230e2642%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22glass%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23dff0ff%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.5%22%20stop-color%3D%22%239cc3ec%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%235d8cc0%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22tire%22%20cx%3D%220.38%22%20cy%3D%220.34%22%20r%3D%220.75%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233a424d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%23222831%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2311151b%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rim%22%20cx%3D%220.4%22%20cy%3D%220.35%22%20r%3D%220.7%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22shadow%22%20cx%3D%220.5%22%20cy%3D%220.5%22%20r%3D%220.5%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220.45%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20ground%20shadow%20--%3E%0A%20%20%3Cellipse%20cx%3D%2236%22%20cy%3D%2258%22%20rx%3D%2230%22%20ry%3D%225.5%22%20fill%3D%22url%28%23shadow%29%22/%3E%0A%0A%20%20%3C%21--%20exhaust%20stack%20--%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%224.5%22%20height%3D%2214%22%20rx%3D%222.2%22%20fill%3D%22%233a4250%22/%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%222%22%20height%3D%2214%22%20rx%3D%221%22%20fill%3D%22%235b6776%22/%3E%0A%20%20%3Cellipse%20cx%3D%2224.2%22%20cy%3D%229%22%20rx%3D%223.2%22%20ry%3D%221.3%22%20fill%3D%22%231b2028%22/%3E%0A%0A%20%20%3C%21--%20rear%20big%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.5%22/%3E%0A%20%20%3Cg%20stroke%3D%22%230e1218%22%20stroke-width%3D%222.2%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2220%22%20y1%3D%2226%22%20x2%3D%2220%22%20y2%3D%2230%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%2254%22%20x2%3D%2220%22%20y2%3D%2258%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%224%22%20y1%3D%2242%22%20x2%3D%228%22%20y2%3D%2242%22/%3E%3Cline%20x1%3D%2232%22%20y1%3D%2242%22%20x2%3D%2236%22%20y2%3D%2242%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%229%22%20y1%3D%2231%22%20x2%3D%2211.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2229%22%20y1%3D%2253%22%20x2%3D%2231%22%20y2%3D%2255%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2231%22%20y1%3D%2231%22%20x2%3D%2228.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2211%22%20y1%3D%2253%22%20x2%3D%229%22%20y2%3D%2255%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%228.5%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%223%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2237%22%20rx%3D%224%22%20ry%3D%222.4%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20front%20small%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.3%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%225%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%221.8%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2253%22%20cy%3D%2245%22%20rx%3D%222.6%22%20ry%3D%221.6%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20chassis%20bar%20--%3E%0A%20%20%3Crect%20x%3D%2218%22%20y%3D%2244%22%20width%3D%2240%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%2323303f%22/%3E%0A%0A%20%20%3C%21--%20cab%20--%3E%0A%20%20%3Cpath%20d%3D%22M14%2038%20V24%20a4%204%200%200%201%204-4%20h12%20l5%206%20v12%20z%22%20fill%3D%22url%28%23cab%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M17%2035%20V25%20a2%202%200%200%201%202-2%20h9%20l3.5%204.5%20V35%20z%22%20fill%3D%22url%28%23glass%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M19%2024%20L31%2033%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20opacity%3D%220.5%22%20stroke-linecap%3D%22round%22/%3E%0A%0A%20%20%3C%21--%20hood%20/%20engine%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2039%20V28%20a3%203%200%200%201%203-3%20h16%20a6%206%200%200%201%206%206%20v8%20a3%203%200%200%201-3%203%20z%22%20fill%3D%22url%28%23hood%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M34%2028%20a2%202%200%200%201%202-2%20h15%20a5%205%200%200%201%205%205%20v1%20H34%20z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.22%22/%3E%0A%20%20%3C%21--%20grille%20--%3E%0A%20%20%3Cg%20stroke%3D%22%237a3608%22%20stroke-width%3D%221.1%22%20opacity%3D%220.7%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2257%22%20y1%3D%2232%22%20x2%3D%2257%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2255%22%20y1%3D%2232%22%20x2%3D%2255%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2253%22%20y1%3D%2232%22%20x2%3D%2253%22%20y2%3D%2240%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3C%21--%20headlight%20--%3E%0A%20%20%3Ccircle%20cx%3D%2258.5%22%20cy%3D%2231%22%20r%3D%222.1%22%20fill%3D%22%23ffe08a%22%20stroke%3D%22%23b9842a%22%20stroke-width%3D%220.8%22/%3E%0A%20%20%3C%21--%20body%20main%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2050%20V40%20h20%20l5%204%20v6%20z%22%20fill%3D%22url%28%23body%29%22/%3E%0A%3C/svg%3E%0A") center/15px auto no-repeat, rgba(239,106,31,.32);
+}
 </style>
 </head>
 <body>
@@ -391,7 +512,7 @@ nav.main a:hover::after{width:100%}
 <!-- top utility bar -->
 <div class="topbar">
   <div class="wrap">
-    <div>📍 Москва и Московская область · Работаем без выходных</div>
+    <div>📍 Москва и Московская область · Работаем без выходных, 8:00–20:00</div>
     <div class="tb-right">
       <a href="mailto:hovhanyana18@mail.ru">hovhanyana18@mail.ru</a>
       <a href="tel:+79850066145"><b>+7 985 006-61-45</b></a>
@@ -428,24 +549,31 @@ nav.main a:hover::after{width:100%}
 <!-- hero -->
 <section class="hero" id="top" style="padding:0">
   <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
   <div class="hex"></div>
   <div class="wrap">
     <div class="hero-inner">
       <span class="eyebrow">Строим будущее вместе</span>
       <h1>Асфальт, крошка и&nbsp;брусчатка <span class="accent">под ключ</span></h1>
-      <p class="lead">Дороги, парковки, дворы и площадки в Москве и области. Своя техника, фиксированная смета в договоре и гарантия 12 месяцев на все работы.</p>
+      <p class="lead">Дороги, парковки, дворы и площадки в Москве и области. Своя техника, фиксированная смета в договоре и гарантия от 1 до 3 лет в зависимости от вида работ.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#calculator">Рассчитать стоимость</a>
         <a class="btn btn-ghost" href="tel:+79850066145">Позвонить нам</a>
       </div>
+      <div class="hero-trust">
+        <span class="t"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 4-3 6.5-8 8-5-1.5-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg>Договор и фиксированная смета</span>
+        <span class="t"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Гарантия 1–3 года</span>
+        <span class="t"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h13M6 17V8h7l3 3h3v6"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg>Своя техника и бригады</span>
+      </div>
     </div>
     <div class="stats">
-      <div class="st"><div class="v"><span class="count" data-to="12">0</span><span>+</span></div><div class="l">месяцев гарантии</div></div>
+      <div class="st"><div class="v"><span class="count" data-to="3">0</span><span>г</span></div><div class="l">гарантия на работы</div></div>
       <div class="st"><div class="v"><span class="count" data-to="24">0</span> <span>ч</span></div><div class="l">выезд замерщика</div></div>
       <div class="st"><div class="v"><span class="count" data-to="1">0</span> <span>ч</span></div><div class="l">смета после звонка</div></div>
       <div class="st"><div class="v"><span class="count" data-to="100">0</span><span>%</span></div><div class="l">своя техника</div></div>
     </div>
   </div>
+  <div class="road"></div>
 </section>
 
 <!-- services -->
@@ -582,7 +710,7 @@ nav.main a:hover::after{width:100%}
       <div class="step"><span class="n">03</span><h4>Смета</h4><p>Готовим расчёт и техническое решение. Цены фиксируем.</p></div>
       <div class="step"><span class="n">04</span><h4>Договор</h4><p>Подписываем договор с гарантией и сроками. Можно постоплата.</p></div>
       <div class="step"><span class="n">05</span><h4>Работы</h4><p>Своя техника и бригады. Фотоотчёты до и после.</p></div>
-      <div class="step"><span class="n">06</span><h4>Сдача</h4><p>Принимаете готовый объект. Гарантия 12 месяцев.</p></div>
+      <div class="step"><span class="n">06</span><h4>Сдача</h4><p>Принимаете готовый объект. Гарантия 1–3 года по виду работ.</p></div>
     </div>
   </div>
 </section>
@@ -593,195 +721,56 @@ nav.main a:hover::after{width:100%}
       <div class="sec-head">
         <span class="eyebrow">Наши работы</span>
         <h2>Этапы работ на площадке</h2>
-        <p>От подготовки основания до сдачи объекта. Нажмите на фото, чтобы открыть его в полном размере.</p>
+        <p>От подготовки основания до сдачи объекта. Снимки демонстрационные, без привязки к конкретному адресу. Нажмите на фото, чтобы открыть его в полном размере.</p>
       </div>
       <div class="gallery-grid">
-      <button class="shot" type="button" data-title="Земляные работы" aria-label="Открыть фото: Земляные работы">
+      <button class="shot" type="button" data-title="Земляные работы" data-desc="Выемка и вывоз грунта, разметка границ участка перед началом основных работ." data-full="assets/gallery/01-zemlyanye-raboty.jpg" aria-label="Открыть фото: Земляные работы">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Земляные работы — экскаватор на площадке">
-  <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient></defs>
-  <rect width="800" height="600" fill="url(#sky1)"/>
-  <circle cx="660" cy="110" r="46" fill="#fdf0e2"/>
-  <path d="M0 390 Q200 350 420 380 T800 372 V600 H0Z" fill="#c9a878"/>
-  <path d="M0 430 H800 V600 H0Z" fill="#a9824f"/>
-  <path d="M120 430 L300 430 L260 540 L160 540 Z" fill="#7d5d34"/>
-  <ellipse cx="640" cy="470" rx="120" ry="34" fill="#8a6a3d"/>
-  <ellipse cx="640" cy="458" rx="86" ry="26" fill="#9c7b49"/>
-  <!-- excavator -->
-  <g>
-    <rect x="430" y="470" width="220" height="40" rx="20" fill="#2a313a"/>
-    <circle cx="455" cy="490" r="16" fill="#444c57"/><circle cx="540" cy="490" r="16" fill="#444c57"/><circle cx="625" cy="490" r="16" fill="#444c57"/>
-    <rect x="470" y="406" width="140" height="74" rx="10" fill="#ef6a1f"/>
-    <rect x="486" y="420" width="58" height="44" rx="6" fill="#cfe3f5"/>
-    <rect x="486" y="420" width="58" height="44" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
-    <rect x="556" y="392" width="20" height="20" rx="3" fill="#13365c"/>
-    <!-- boom -->
-    <path d="M548 430 L640 360 L690 380" fill="none" stroke="#2f6fae" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M690 380 L700 440" fill="none" stroke="#2f6fae" stroke-width="16" stroke-linecap="round"/>
-    <path d="M676 448 q40 6 44 -28 l-10 -2 q-4 22 -30 18 z" fill="#13365c"/>
-    <path d="M676 448 l-6 18 l50 0 l-4 -22 z" fill="#1b4a7e"/>
-  </g>
-  <rect x="0" y="560" width="800" height="40" fill="#13365c" opacity="0.06"/>
-</svg>
+        <img class="photo" src="assets/gallery/01-zemlyanye-raboty-thumb.jpg" alt="Земляные работы — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
         <span class="cap"><span class="cn">01</span>Земляные работы</span>
+        <span class="cap-desc">Выемка и вывоз грунта, разметка границ участка перед началом основных работ.</span>
       </button>
-      <button class="shot" type="button" data-title="Устройство основания" aria-label="Открыть фото: Устройство основания">
+      <button class="shot" type="button" data-title="Устройство основания" data-desc="Послойная отсыпка щебня и песка с трамбовкой виброплитой по заданным уклонам." data-full="assets/gallery/02-osnovanie.jpg" aria-label="Открыть фото: Устройство основания">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Устройство основания — отсыпка и уплотнение">
-  <defs>
-    <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
-    <pattern id="gravel2" width="22" height="18" patternUnits="userSpaceOnUse"><rect width="22" height="18" fill="#b7bfc9"/><circle cx="5" cy="5" r="2.4" fill="#969fab"/><circle cx="16" cy="11" r="2.8" fill="#8b95a2"/><circle cx="11" cy="3" r="1.8" fill="#a7b0bb"/></pattern>
-  </defs>
-  <rect width="800" height="600" fill="url(#sky2)"/>
-  <rect x="0" y="360" width="800" height="60" fill="#d8c9a8"/>
-  <rect x="0" y="408" width="800" height="60" fill="url(#gravel2)"/>
-  <rect x="0" y="468" width="800" height="132" fill="#c2cad4"/>
-  <rect x="0" y="468" width="800" height="132" fill="url(#gravel2)" opacity="0.5"/>
-  <!-- string line -->
-  <rect x="120" y="320" width="8" height="100" fill="#13365c"/>
-  <rect x="640" y="320" width="8" height="100" fill="#13365c"/>
-  <line x1="124" y1="326" x2="644" y2="326" stroke="#ef6a1f" stroke-width="3"/>
-  <!-- plate compactor -->
-  <g>
-    <rect x="470" y="420" width="150" height="26" rx="6" fill="#2a313a"/>
-    <rect x="492" y="372" width="92" height="52" rx="8" fill="#ef6a1f"/>
-    <rect x="506" y="384" width="64" height="20" rx="4" fill="#13365c"/>
-    <path d="M584 392 L660 330" stroke="#1b4a7e" stroke-width="12" stroke-linecap="round"/>
-    <circle cx="664" cy="324" r="10" fill="#13365c"/>
-  </g>
-  <!-- worker with rake -->
-  <g transform="translate(230,320)">
-    <circle cx="0" cy="0" r="16" fill="#f4c89b"/><rect x="-7" y="-22" width="14" height="12" rx="4" fill="#ef6a1f"/>
-    <rect x="-12" y="14" width="24" height="46" rx="8" fill="#2f6fae"/>
-    <rect x="-12" y="60" width="10" height="40" rx="4" fill="#13365c"/><rect x="2" y="60" width="10" height="40" rx="4" fill="#13365c"/>
-    <line x1="10" y1="24" x2="70" y2="92" stroke="#8a6a3d" stroke-width="6" stroke-linecap="round"/>
-    <rect x="64" y="92" width="34" height="8" rx="3" fill="#444c57"/>
-  </g>
-</svg>
+        <img class="photo" src="assets/gallery/02-osnovanie-thumb.jpg" alt="Устройство основания — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
         <span class="cap"><span class="cn">02</span>Устройство основания</span>
+        <span class="cap-desc">Послойная отсыпка щебня и песка с трамбовкой виброплитой по заданным уклонам.</span>
       </button>
-      <button class="shot" type="button" data-title="Укладка асфальта" aria-label="Открыть фото: Укладка асфальта">
+      <button class="shot" type="button" data-title="Укладка асфальта" data-desc="Горячая асфальтобетонная смесь укладывается асфальтоукладчиком с контролем толщины слоя." data-full="assets/gallery/03-asfalt.jpg" aria-label="Открыть фото: Укладка асфальта">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Укладка асфальта — асфальтоукладчик">
-  <defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbddf0"/><stop offset="1" stop-color="#edf3f9"/></linearGradient>
-  <linearGradient id="asph3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a444f"/><stop offset="1" stop-color="#262d35"/></linearGradient></defs>
-  <rect width="800" height="600" fill="url(#sky3)"/>
-  <rect x="0" y="380" width="800" height="220" fill="#cdd4dc"/>
-  <!-- fresh asphalt strip -->
-  <path d="M0 470 L520 470 L520 560 L0 560 Z" fill="url(#asph3)"/>
-  <path d="M0 470 L520 470 L520 482 L0 482 Z" fill="#4a545f" opacity="0.7"/>
-  <!-- heat lines -->
-  <g stroke="#ef6a1f" stroke-width="3" opacity="0.5" fill="none" stroke-linecap="round">
-    <path d="M120 462 q8 -14 0 -28"/><path d="M210 462 q8 -14 0 -28"/><path d="M300 462 q8 -14 0 -28"/>
-  </g>
-  <!-- paver machine -->
-  <g>
-    <rect x="520" y="430" width="220" height="100" rx="10" fill="#ef6a1f"/>
-    <path d="M740 440 L788 460 L788 520 L740 530 Z" fill="#13365c"/>
-    <rect x="544" y="446" width="80" height="46" rx="6" fill="#cfe3f5"/>
-    <rect x="544" y="446" width="80" height="46" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
-    <rect x="640" y="452" width="60" height="40" rx="6" fill="#1b4a7e"/>
-    <rect x="500" y="530" width="260" height="22" rx="8" fill="#2a313a"/>
-    <circle cx="540" cy="541" r="14" fill="#444c57"/><circle cx="600" cy="541" r="14" fill="#444c57"/><circle cx="700" cy="541" r="14" fill="#444c57"/>
-    <rect x="600" y="404" width="14" height="36" fill="#444c57"/><ellipse cx="607" cy="400" rx="12" ry="6" fill="#9aa3ad" opacity="0.7"/>
-  </g>
-</svg>
+        <img class="photo" src="assets/gallery/03-asfalt-thumb.jpg" alt="Укладка асфальта — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
         <span class="cap"><span class="cn">03</span>Укладка асфальта</span>
+        <span class="cap-desc">Горячая асфальтобетонная смесь укладывается асфальтоукладчиком с контролем толщины слоя.</span>
       </button>
-      <button class="shot" type="button" data-title="Уплотнение катком" aria-label="Открыть фото: Уплотнение катком">
+      <button class="shot" type="button" data-title="Уплотнение катком" data-desc="Дорожный каток послойно прикатывает покрытие, добиваясь плотности и ровной поверхности." data-full="assets/gallery/04-katok.jpg" aria-label="Открыть фото: Уплотнение катком">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Уплотнение асфальта дорожным катком">
-  <defs><linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbddf0"/><stop offset="1" stop-color="#edf3f9"/></linearGradient>
-  <linearGradient id="drum4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe4ea"/><stop offset="0.5" stop-color="#aab2bc"/><stop offset="1" stop-color="#7e8893"/></linearGradient></defs>
-  <rect width="800" height="600" fill="url(#sky4)"/>
-  <rect x="0" y="400" width="800" height="200" fill="#2f3841"/>
-  <rect x="0" y="400" width="800" height="14" fill="#454f59" opacity="0.7"/>
-  <!-- shine -->
-  <path d="M60 470 L760 470" stroke="#5b6671" stroke-width="2" opacity="0.6"/>
-  <path d="M60 510 L760 510" stroke="#5b6671" stroke-width="2" opacity="0.6"/>
-  <!-- tandem roller -->
-  <g>
-    <ellipse cx="300" cy="500" rx="58" ry="58" fill="url(#drum4)"/>
-    <ellipse cx="300" cy="500" rx="58" ry="58" fill="none" stroke="#5e6873" stroke-width="3"/>
-    <ellipse cx="560" cy="500" rx="58" ry="58" fill="url(#drum4)"/>
-    <ellipse cx="560" cy="500" rx="58" ry="58" fill="none" stroke="#5e6873" stroke-width="3"/>
-    <rect x="296" y="430" width="20" height="70" fill="#13365c"/>
-    <rect x="544" y="430" width="20" height="70" fill="#13365c"/>
-    <rect x="300" y="392" width="260" height="70" rx="12" fill="#ef6a1f"/>
-    <rect x="324" y="406" width="84" height="44" rx="6" fill="#cfe3f5"/>
-    <rect x="324" y="406" width="84" height="44" rx="6" fill="none" stroke="#13365c" stroke-width="3"/>
-    <rect x="430" y="392" width="110" height="22" rx="8" fill="#13365c"/>
-    <rect x="396" y="358" width="70" height="40" rx="10" fill="#1b4a7e"/>
-  </g>
-</svg>
+        <img class="photo" src="assets/gallery/04-katok-thumb.jpg" alt="Уплотнение катком — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
         <span class="cap"><span class="cn">04</span>Уплотнение катком</span>
+        <span class="cap-desc">Дорожный каток послойно прикатывает покрытие, добиваясь плотности и ровной поверхности.</span>
       </button>
-      <button class="shot" type="button" data-title="Мощение брусчатки" aria-label="Открыть фото: Мощение брусчатки">
+      <button class="shot" type="button" data-title="Мощение брусчатки" data-desc="Укладка брусчатки по песчаной подушке с подрезкой по контуру и подбивкой швов." data-full="assets/gallery/05-bruschatka.jpg" aria-label="Открыть фото: Мощение брусчатки">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Мощение брусчатки">
-  <defs>
-    <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1f2"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
-    <pattern id="brick5" width="60" height="36" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)">
-      <rect width="60" height="36" fill="#c25a3a"/>
-      <rect x="1" y="1" width="28" height="16" rx="2" fill="#d76e4a"/>
-      <rect x="31" y="1" width="28" height="16" rx="2" fill="#c9603f"/>
-      <rect x="16" y="19" width="28" height="16" rx="2" fill="#cf6543"/>
-      <rect x="-14" y="19" width="28" height="16" rx="2" fill="#d76e4a"/>
-      <rect x="46" y="19" width="28" height="16" rx="2" fill="#d76e4a"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="600" fill="url(#sky5)"/>
-  <rect x="0" y="350" width="800" height="250" fill="#cbc1ad"/>
-  <!-- laid pavers area -->
-  <path d="M0 420 L520 420 L520 600 L0 600 Z" fill="url(#brick5)"/>
-  <!-- sand bed exposed -->
-  <path d="M520 420 L800 420 L800 600 L520 600 Z" fill="#d8c9a8"/>
-  <g stroke="#c7b791" stroke-width="2"><line x1="540" y1="460" x2="780" y2="460"/><line x1="540" y1="520" x2="780" y2="520"/></g>
-  <!-- curb -->
-  <rect x="0" y="404" width="800" height="18" fill="#aeb6bf"/>
-  <rect x="0" y="404" width="800" height="6" fill="#c6cdd5"/>
-  <!-- pallet of pavers -->
-  <g transform="translate(650,330)"><rect x="0" y="40" width="90" height="14" fill="#8a6a3d"/><rect x="6" y="8" width="78" height="34" fill="#c25a3a"/><g stroke="#9c4a30" stroke-width="2"><line x1="32" y1="8" x2="32" y2="42"/><line x1="58" y1="8" x2="58" y2="42"/><line x1="6" y1="25" x2="84" y2="25"/></g></g>
-  <!-- kneeling worker -->
-  <g transform="translate(420,330)">
-    <circle cx="0" cy="0" r="15" fill="#f4c89b"/><path d="M-14 -4 a14 14 0 0 1 28 0 z" fill="#ef6a1f"/>
-    <path d="M-10 12 q24 4 30 40 l-18 6 q-10 -26 -26 -28 z" fill="#2f6fae"/>
-    <rect x="0" y="54" width="40" height="12" rx="4" fill="#13365c"/>
-    <rect x="14" y="40" width="10" height="26" rx="4" fill="#13365c"/>
-    <line x1="18" y1="20" x2="44" y2="44" stroke="#f4c89b" stroke-width="9" stroke-linecap="round"/>
-    <rect x="40" y="40" width="20" height="12" rx="3" fill="#444c57"/>
-  </g>
-</svg>
+        <img class="photo" src="assets/gallery/05-bruschatka-thumb.jpg" alt="Мощение брусчатки — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
         <span class="cap"><span class="cn">05</span>Мощение брусчатки</span>
+        <span class="cap-desc">Укладка брусчатки по песчаной подушке с подрезкой по контуру и подбивкой швов.</span>
       </button>
-      <button class="shot" type="button" data-title="Готовый объект" aria-label="Открыть фото: Готовый объект">
+      <button class="shot" type="button" data-title="Установка бордюров" data-desc="Бортовой камень монтируется на бетонное основание строго по уровню и проектным отметкам." data-full="assets/gallery/06-bordury.jpg" aria-label="Открыть фото: Установка бордюров">
         <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        <svg class="photo" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Готовое покрытие — сданный объект">
-  <defs><linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd6ef"/><stop offset="1" stop-color="#eaf2fa"/></linearGradient>
-  <linearGradient id="road6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46505b"/><stop offset="1" stop-color="#2b333c"/></linearGradient></defs>
-  <rect width="800" height="600" fill="url(#sky6)"/>
-  <circle cx="120" cy="110" r="50" fill="#fdf0e2"/>
-  <!-- green sides -->
-  <rect x="0" y="360" width="800" height="240" fill="#9cc47e"/>
-  <!-- road perspective -->
-  <path d="M330 360 L470 360 L760 600 L40 600 Z" fill="url(#road6)"/>
-  <!-- curbs -->
-  <path d="M330 360 L320 360 L20 600 L70 600 Z" fill="#c6cdd5"/>
-  <path d="M470 360 L480 360 L780 600 L730 600 Z" fill="#c6cdd5"/>
-  <!-- center dashed line -->
-  <g fill="#f4f7fa">
-    <polygon points="396,372 404,372 404,392 395,392"/>
-    <polygon points="393,410 405,410 406,438 391,438"/>
-    <polygon points="389,462 407,462 409,500 386,500"/>
-    <polygon points="383,524 411,524 414,576 379,576"/>
-  </g>
-  <!-- trees -->
-  <g transform="translate(95,250)"><rect x="-6" y="60" width="12" height="40" fill="#7d5d34"/><circle cx="0" cy="40" r="40" fill="#5c9a47"/><circle cx="-22" cy="58" r="26" fill="#6aa854"/><circle cx="24" cy="56" r="24" fill="#6aa854"/></g>
-  <g transform="translate(690,270)"><rect x="-5" y="50" width="10" height="34" fill="#7d5d34"/><circle cx="0" cy="34" r="32" fill="#5c9a47"/><circle cx="20" cy="48" r="20" fill="#6aa854"/></g>
-  <!-- finished badge -->
-  <g transform="translate(400,330)"><circle cx="0" cy="0" r="30" fill="#ef6a1f"/><path d="M-13 0 l9 10 l18 -20" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
-</svg>
-        <span class="cap"><span class="cn">06</span>Готовый объект</span>
+        <img class="photo" src="assets/gallery/06-bordury-thumb.jpg" alt="Установка бордюров — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
+        <span class="cap"><span class="cn">06</span>Установка бордюров</span>
+        <span class="cap-desc">Бортовой камень монтируется на бетонное основание строго по уровню и проектным отметкам.</span>
+      </button>
+      <button class="shot" type="button" data-title="Контроль качества" data-desc="Геодезист проверяет уклоны, толщину слоёв и геометрию покрытия перед сдачей объекта." data-full="assets/gallery/07-kontrol.jpg" aria-label="Открыть фото: Контроль качества">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <img class="photo" src="assets/gallery/07-kontrol-thumb.jpg" alt="Контроль качества — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
+        <span class="cap"><span class="cn">07</span>Контроль качества</span>
+        <span class="cap-desc">Геодезист проверяет уклоны, толщину слоёв и геометрию покрытия перед сдачей объекта.</span>
+      </button>
+      <button class="shot" type="button" data-title="Готовый объект" data-desc="Готовое покрытие с разметкой и благоустройством — объект принят и сдан заказчику." data-full="assets/gallery/08-gotovo.jpg" aria-label="Открыть фото: Готовый объект">
+        <span class="zoom"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
+        <img class="photo" src="assets/gallery/08-gotovo-thumb.jpg" alt="Готовый объект — ГРАД СТРОЙ 5" loading="lazy" width="640" height="427" />
+        <span class="cap"><span class="cn">08</span>Готовый объект</span>
+        <span class="cap-desc">Готовое покрытие с разметкой и благоустройством — объект принят и сдан заказчику.</span>
       </button>
       </div>
     </div>
@@ -794,7 +783,10 @@ nav.main a:hover::after{width:100%}
     <button class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">&#8250;</button>
     <div class="lb-stage">
       <div class="lb-frame" id="lbFrame"></div>
-      <div class="lb-cap"><span id="lbTitle"></span><span id="lbCounter"></span></div>
+      <div class="lb-cap">
+        <div class="lb-cap-text"><span id="lbTitle"></span><span id="lbDesc"></span></div>
+        <span id="lbCounter"></span>
+      </div>
     </div>
   </div>
 
@@ -806,7 +798,7 @@ nav.main a:hover::after{width:100%}
       <h2>Работаем на результат</h2>
     </div>
     <div class="adv">
-      <div class="a"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 3l8 4v6c0 4-3 6-8 8-5-2-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Гарантия 12 месяцев</b><span>Отвечаем за качество письменно в договоре.</span></div></div>
+      <div class="a"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 3l8 4v6c0 4-3 6-8 8-5-2-8-4-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Гарантия 1–3 года</b><span>Асфальт и крошка — 1–2 года, брусчатка и бордюры — до 3 лет. Срок фиксируем в договоре.</span></div></div>
       <div class="a"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M3 17h13M6 17V8h7l3 3h3v6"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg><div><b>Своя техника</b><span>Катки, фрезы, виброплиты — без посредников.</span></div></div>
       <div class="a"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg><div><b>Работа по ГОСТ</b><span>Контроль толщины, уклонов и уплотнения.</span></div></div>
       <div class="a"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 14h6"/></svg><div><b>Фиксированные цены</b><span>Сумма не меняется по ходу работ.</span></div></div>
@@ -836,7 +828,7 @@ nav.main a:hover::after{width:100%}
         </div>
         <div class="ch">
           <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 2C6.5 2 2 6 2 11c0 2 1 4 3 5l-1 4 4-2c1 .3 3 .4 4 .4 5.5 0 10-4 10-9S17.5 2 12 2z"/></svg></span>
-          <div><span class="lab">Режим работы</span><span class="val">Ежедневно, 8:00 — 21:00</span></div>
+          <div><span class="lab">Режим работы</span><span class="val">Ежедневно, 8:00 — 20:00</span></div>
         </div>
         <div class="msg-row">
           <a class="btn btn-primary" href="https://wa.me/79850066145?text=Здравствуйте!%20Хочу%20узнать%20стоимость%20работ." target="_blank" rel="noopener">WhatsApp</a>
@@ -971,12 +963,19 @@ nav.main a:hover::after{width:100%}
   var shots = [].slice.call(document.querySelectorAll('.shot'));
   if (shots.length){
     var byId = function(id){ return document.getElementById(id); };
-    var lb = byId('lb'), lbFrame = byId('lbFrame'), lbTitle = byId('lbTitle'), lbCounter = byId('lbCounter'), cur = 0;
+    var lb = byId('lb'), lbFrame = byId('lbFrame'), lbTitle = byId('lbTitle'), lbDesc = byId('lbDesc'), lbCounter = byId('lbCounter'), cur = 0;
     function showShot(i){
       cur = (i + shots.length) % shots.length;
       var s = shots[cur];
-      lbFrame.innerHTML = s.querySelector('.photo').outerHTML;
-      lbTitle.textContent = s.getAttribute('data-title');
+      var fullSrc = s.getAttribute('data-full');
+      var titleTxt = s.getAttribute('data-title') || '';
+      if (fullSrc){
+        lbFrame.innerHTML = '<img class="photo" src="' + fullSrc + '" alt="' + titleTxt + ' — ГРАД СТРОЙ 5" />';
+      } else {
+        lbFrame.innerHTML = s.querySelector('.photo').outerHTML;
+      }
+      lbTitle.textContent = titleTxt;
+      lbDesc.textContent = s.getAttribute('data-desc') || '';
       lbCounter.textContent = (cur + 1) + ' / ' + shots.length;
     }
     function openLb(i){
