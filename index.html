@@ -506,22 +506,22 @@ footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:4px
 }
 
 /* ===== СВОЙ СКРОЛЛБАР: дорога + крупный 3D-трактор с колёсами ===== */
-.tractor-rail{position:fixed;top:0;right:0;width:24px;height:100vh;z-index:90;display:none;cursor:pointer;
+.tractor-rail{position:fixed;top:0;right:0;width:18px;height:100vh;z-index:90;display:none;cursor:pointer;
   box-shadow:-10px 0 26px -18px rgba(0,0,0,.55);
   background:
-    repeating-linear-gradient(0deg,#f4c542 0 12px,transparent 12px 30px) center/3px 100% no-repeat,
+    repeating-linear-gradient(0deg,#f4c542 0 10px,transparent 10px 26px) center/2px 100% no-repeat,
     linear-gradient(90deg,#3a4048 0 4px,#2a2e34 4px,#21252b 50%,#2a2e34,#3a4048 calc(100% - 4px));}
 .tractor-thumb{position:absolute;left:0;right:0;top:0;height:62px;display:grid;place-items:center;cursor:grab;
   will-change:transform;touch-action:none}
 .tractor-thumb:active{cursor:grabbing}
-.tractor-svg{width:18px;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.55))}
+.tractor-svg{width:13px;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.55))}
 .tractor-svg #wheelRear{transform-box:view-box;transform-origin:20px 42px}
 .tractor-svg #wheelFront{transform-box:view-box;transform-origin:56px 48px}
 html.tractor-on{scrollbar-width:none}
 html.tractor-on::-webkit-scrollbar{width:0;height:0;display:none}
 html.tractor-on .tractor-rail{display:block}
-html.tractor-on .float{right:34px}
-html.tractor-on body{padding-right:24px}
+html.tractor-on .float{right:28px}
+html.tractor-on body{padding-right:18px}
 @media (prefers-reduced-motion:reduce){.tractor-thumb{transition:none!important}}
 </style>
 </head>
@@ -1229,7 +1229,7 @@ html.tractor-on body{padding-right:24px}
   function dims(){
     var docH=Math.max(document.body.scrollHeight, html.scrollHeight);
     var winH=window.innerHeight, railH=rail.clientHeight;
-    var thumbH=Math.max(56, Math.round(railH*(winH/docH)));
+    var thumbH=Math.max(42, Math.round(railH*(winH/docH)));
     return {docH:docH, winH:winH, railH:railH, thumbH:thumbH, max:docH-winH};
   }
   function update(){
