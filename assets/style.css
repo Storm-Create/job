@@ -1,0 +1,496 @@
+:root{
+  --navy-900:#0e2642;
+  --navy-800:#13365c;
+  --navy-700:#1b4a7e;
+  --steel:#2f6fae;
+  --orange:#ef6a1f;
+  --orange-600:#d6560f;
+  --ink:#152439;
+  --slate:#5d6b7d;
+  --line:#e2e8f0;
+  --bg:#f3f6fa;
+  --surface:#ffffff;
+  --surface-2:#eaf0f7;
+  --shadow:0 18px 48px -24px rgba(14,38,66,.45);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Inter",system-ui,Arial,sans-serif;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.display{font-family:"Oswald",sans-serif;font-weight:600;line-height:1.05;letter-spacing:.01em;margin:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.eyebrow{
+  font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:.22em;font-size:.78rem;color:var(--orange);
+  display:inline-flex;align-items:center;gap:.6rem;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--orange)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+  font-size:.92rem;padding:.85rem 1.5rem;border-radius:10px;cursor:pointer;border:0;
+  transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 12px 26px -12px rgba(239,106,31,.7)}
+.btn-primary:hover{background:var(--orange-600);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-dark{background:var(--navy-800);color:#fff}
+.btn-dark:hover{background:var(--navy-700);transform:translateY(-2px)}
+
+/* ---------- header ---------- */
+.topbar{background:var(--navy-900);color:#cdd9e8;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.5rem 0;flex-wrap:wrap}
+.topbar a{color:#cdd9e8}
+.topbar a:hover{color:#fff}
+.topbar .tb-right{display:flex;gap:1.4rem;flex-wrap:wrap}
+.topbar b{color:#fff}
+
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.headrow{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:46px;height:46px;object-fit:contain}
+.brand .name{font-family:"Oswald",sans-serif;font-weight:700;font-size:1.32rem;letter-spacing:.02em;color:var(--navy-800);line-height:1;white-space:nowrap;display:block}
+.brand .name b{color:var(--orange)}
+.brand .sub{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-top:3px;white-space:nowrap;display:block}
+nav.main{display:flex;gap:1.6rem;align-items:center}
+nav.main a{font-weight:600;font-size:.95rem;color:var(--ink);position:relative;padding:.2rem 0}
+nav.main a:hover{color:var(--orange)}
+.head-cta{display:flex;align-items:center;gap:1rem}
+.head-phone{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.12rem;color:var(--navy-800);white-space:nowrap}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:26px;height:2.5px;background:var(--navy-800);border-radius:2px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--navy-900);color:#fff;overflow:hidden}
+.hero .grid-bg{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(120% 120% at 80% 10%,#000 35%,transparent 80%)}
+.hero .hex{position:absolute;right:-120px;top:-60px;width:560px;height:560px;opacity:.07;
+  background:url('assets/emblem.png') center/contain no-repeat;filter:grayscale(1) brightness(3);pointer-events:none}
+.hero .wrap{position:relative;padding:clamp(3.5rem,8vw,6.5rem) 0 clamp(3rem,6vw,5rem)}
+.hero-inner{max-width:760px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:700;text-transform:uppercase}
+.hero h1 .accent{color:var(--orange)}
+.hero p.lead{font-size:clamp(1.05rem,2.2vw,1.32rem);color:#c4d2e3;margin:1.4rem 0 2rem;max-width:620px}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);
+  margin-top:clamp(2.5rem,6vw,4rem);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden}
+.stats .st{background:var(--navy-900);padding:1.3rem 1.2rem}
+.stats .st .v{font-family:"Oswald",sans-serif;font-weight:700;font-size:1.9rem;color:#fff}
+.stats .st .v span{color:var(--orange)}
+.stats .st .l{font-size:.82rem;color:#9fb2c9;margin-top:.2rem}
+
+/* ---------- sections ---------- */
+section{padding:clamp(3.2rem,7vw,5.5rem) 0}
+.sec-head{margin-bottom:2.6rem;max-width:640px}
+.sec-head h2{font-size:clamp(1.9rem,4.5vw,3rem);text-transform:uppercase;margin-top:.7rem;color:var(--navy-900)}
+.sec-head p{color:var(--slate);margin:.8rem 0 0}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.7rem;
+  display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ico{width:54px;height:54px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;margin-bottom:1.1rem}
+.svc .ico svg{width:28px;height:28px;stroke:var(--navy-700)}
+.svc h3{font-size:1.4rem;text-transform:uppercase;color:var(--navy-800)}
+.svc .from{font-family:"Oswald",sans-serif;font-weight:600;color:var(--orange);font-size:1.05rem;margin:.4rem 0 1rem}
+.svc ul{list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.svc li{position:relative;padding-left:1.4rem;color:var(--slate);font-size:.95rem}
+.svc li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--steel);border-radius:2px;transform:rotate(45deg)}
+.svc .go{margin-top:auto;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--navy-800);font-size:.9rem;display:inline-flex;gap:.4rem;align-items:center}
+.svc .go:hover{color:var(--orange)}
+
+/* calculator */
+.calc-sec{background:var(--navy-900);color:#fff;position:relative;overflow:hidden}
+.calc-sec .grid-bg{position:absolute;inset:0;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:46px 46px}
+.calc-sec .wrap{position:relative}
+.calc-sec .sec-head h2{color:#fff}
+.calc-sec .sec-head p{color:#b6c6da}
+.calc{display:grid;grid-template-columns:1.3fr .9fr;gap:1.6rem;align-items:stretch}
+.calc-form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:1.8rem}
+.field{margin-bottom:1.3rem}
+.field>label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.55rem;color:var(--navy-800)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.seg button{font-family:"Inter",sans-serif;font-weight:600;font-size:.9rem;padding:.7rem .4rem;border-radius:9px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:all .15s}
+.seg button.active{border-color:var(--orange);background:#fff4ec;color:var(--orange-600)}
+.seg.cols2{grid-template-columns:repeat(3,1fr)}
+input[type=number]{width:100%;font-family:"Inter",sans-serif;font-size:1rem;padding:.75rem .85rem;border:1.5px solid var(--line);border-radius:9px;color:var(--ink)}
+input[type=number]:focus{outline:none;border-color:var(--steel)}
+.range-row{display:flex;align-items:center;gap:1rem}
+.range-row input[type=range]{flex:1;accent-color:var(--orange)}
+.range-val{font-family:"Oswald",sans-serif;font-weight:600;min-width:62px;text-align:right;color:var(--navy-800)}
+.checks{display:flex;flex-direction:column;gap:.7rem}
+.check{display:flex;align-items:center;gap:.65rem;font-size:.93rem;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--orange)}
+.calc-result{background:linear-gradient(165deg,var(--navy-800),var(--navy-900));border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.8rem;display:flex;flex-direction:column}
+.calc-result .rlabel{font-size:.85rem;color:#9fb2c9;text-transform:uppercase;letter-spacing:.12em}
+.calc-result .total{font-family:"Oswald",sans-serif;font-weight:700;font-size:clamp(2.4rem,5vw,3.2rem);color:#fff;margin:.2rem 0 .1rem}
+.calc-result .total small{color:var(--orange);font-size:1.1rem;font-weight:600}
+.calc-result .approx{font-size:.82rem;color:#9fb2c9;margin-bottom:1.2rem}
+.breakdown{list-style:none;padding:0;margin:0 0 1.4rem;border-top:1px solid rgba(255,255,255,.12)}
+.breakdown li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;color:#d6e0ec}
+.breakdown li b{font-family:"Oswald",sans-serif;font-weight:600;color:#fff;white-space:nowrap}
+.breakdown li.note{color:#f3a86d;border-bottom:0;font-size:.84rem}
+.calc-result .btn{width:100%;margin-top:auto}
+
+/* price list */
+.price-note{background:#fff4ec;border:1px solid #f6d3b9;color:var(--orange-600);border-radius:10px;padding:.8rem 1.1rem;font-size:.9rem;font-weight:600;margin-bottom:1.8rem;display:flex;gap:.6rem;align-items:flex-start}
+.acc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.acc + .acc{margin-top:.9rem}
+.acc summary{list-style:none;cursor:pointer;padding:1.15rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:1.08rem;color:var(--navy-800)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .plus{width:26px;height:26px;flex:none;border-radius:7px;background:var(--surface-2);display:grid;place-items:center;position:relative;transition:.2s}
+.acc summary .plus::before,.acc summary .plus::after{content:"";position:absolute;background:var(--navy-700);border-radius:2px}
+.acc summary .plus::before{width:12px;height:2.4px}
+.acc summary .plus::after{width:2.4px;height:12px;transition:.2s}
+.acc[open] summary .plus{background:var(--orange)}
+.acc[open] summary .plus::before,.acc[open] summary .plus::after{background:#fff}
+.acc[open] summary .plus::after{transform:rotate(90deg);opacity:0}
+.acc .body{padding:0 1.4rem 1.1rem}
+.acc .desc{color:var(--slate);font-size:.9rem;margin:-.2rem 0 .8rem}
+table.price{width:100%;border-collapse:collapse;font-size:.94rem}
+table.price td{padding:.62rem 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.price tr:last-child td{border-bottom:0}
+table.price .nm{color:var(--ink);padding-right:1rem}
+table.price .un{color:var(--slate);width:64px;text-align:center;white-space:nowrap;font-size:.86rem}
+table.price .pr{font-family:"Oswald",sans-serif;font-weight:600;color:var(--navy-800);text-align:right;white-space:nowrap;width:120px}
+table.price .pr.free{color:var(--steel)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.7rem 1.5rem;position:relative}
+.step .n{font-family:"Oswald",sans-serif;font-weight:700;font-size:2.6rem;color:var(--surface-2);line-height:.8;position:absolute;top:1.1rem;right:1.2rem}
+.step h4{font-size:1.18rem;text-transform:uppercase;color:var(--navy-800);margin-bottom:.4rem;position:relative}
+.step p{color:var(--slate);font-size:.93rem;margin:0;position:relative}
+
+/* advantages */
+.adv-sec{background:var(--surface-2)}
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.adv .a{display:flex;gap:.9rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.2rem}
+.adv .a svg{width:26px;height:26px;flex:none;stroke:var(--orange);margin-top:2px}
+.adv .a b{display:block;font-family:"Oswald",sans-serif;font-weight:600;color:var(--navy-800);font-size:1.02rem;text-transform:uppercase;letter-spacing:.02em}
+.adv .a span{color:var(--slate);font-size:.9rem}
+
+/* contacts */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:start}
+.cinfo .ch{display:flex;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--line)}
+.cinfo .ch:last-child{border-bottom:0}
+.cinfo .ch .ci{width:46px;height:46px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;flex:none}
+.cinfo .ch .ci svg{width:22px;height:22px;stroke:var(--navy-700)}
+.cinfo .ch .lab{font-size:.8rem;color:var(--slate);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
+.cinfo .ch .val{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.18rem;color:var(--navy-800);display:block}
+.msg-row{display:flex;gap:.8rem;margin-top:1.4rem;flex-wrap:wrap}
+.msg-row a{flex:1;min-width:140px}
+.cform{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow)}
+.cform h3{font-size:1.4rem;text-transform:uppercase;color:var(--navy-800);margin-bottom:.3rem}
+.cform p.sm{color:var(--slate);font-size:.9rem;margin:0 0 1.3rem}
+.cform input,.cform textarea{width:100%;font-family:"Inter",sans-serif;font-size:1rem;padding:.78rem .9rem;border:1.5px solid var(--line);border-radius:9px;margin-bottom:.85rem;color:var(--ink)}
+.cform textarea{min-height:96px;resize:vertical}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--steel)}
+.cform .btn{width:100%}
+.cform .privacy{font-size:.78rem;color:var(--slate);margin:.9rem 0 0;text-align:center}
+
+/* footer */
+footer.site{background:var(--navy-900);color:#b9c8da;padding:3rem 0 1.6rem}
+.foot-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand{display:flex;align-items:center;gap:.8rem;max-width:360px}
+.foot-brand img{width:54px;height:54px}
+.foot-brand .name{font-family:"Oswald",sans-serif;font-weight:700;font-size:1.35rem;color:#fff;letter-spacing:.02em}
+.foot-brand .name b{color:var(--orange)}
+.foot-brand .sl{font-size:.8rem;color:#8ea3bd;letter-spacing:.12em;text-transform:uppercase}
+.foot-links{display:flex;gap:3rem;flex-wrap:wrap}
+.foot-col h5{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;font-size:.95rem;margin:0 0 .8rem}
+.foot-col a,.foot-col div{display:block;color:#b9c8da;font-size:.92rem;padding:.22rem 0}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:1.4rem;font-size:.82rem;color:#7d92ad;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* floating contact */
+.float{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:.7rem}
+.float a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.4);transition:transform .15s}
+.float a:hover{transform:scale(1.08)}
+.float .wa{background:#25d366}
+.float .tg{background:#2aabee}
+.float a svg{width:26px;height:26px;fill:#fff}
+
+
+/* ============ GALLERY + LIGHTBOX ============ */
+#gallery .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.shot{position:relative;display:block;width:100%;margin:0;padding:0;border:0;cursor:pointer;border-radius:var(--radius);overflow:hidden;background:var(--surface-2);aspect-ratio:3/2;font-family:inherit;box-shadow:0 12px 32px -22px rgba(14,38,66,.55)}
+.shot .photo{width:100%;height:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.shot:hover .photo{transform:scale(1.07)}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.1rem .9rem;background:linear-gradient(transparent,rgba(11,28,48,.85));color:#fff;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:1.02rem;display:flex;align-items:center;gap:.6rem;text-align:left}
+.shot .cap .cn{color:var(--orange);font-size:.84rem;flex:none}
+.shot .cap-desc{position:absolute;left:0;right:0;bottom:0;padding:0 1.1rem .85rem 2.3rem;color:#cfdcec;font-size:.78rem;font-family:"Inter",sans-serif;font-weight:400;text-transform:none;letter-spacing:normal;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease;line-height:1.4}
+.shot:hover .cap{padding-bottom:2.6rem}
+.shot:hover .cap-desc{opacity:1;transform:none}
+.shot .cap{transition:padding-bottom .22s ease}
+.shot .zoom{position:absolute;top:.85rem;right:.85rem;z-index:2;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.94);display:grid;place-items:center;opacity:0;transform:scale(.7) translateY(-4px);transition:opacity .25s ease,transform .25s ease}
+.shot:hover .zoom,.shot:focus-visible .zoom{opacity:1;transform:none}
+.shot .zoom svg{width:18px;height:18px;stroke:var(--navy-800);fill:none}
+.shot:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+.lb{position:fixed;inset:0;z-index:130;background:rgba(8,18,30,.93);display:none;align-items:center;justify-content:center;padding:5vh 5vw;opacity:0;transition:opacity .28s ease}
+.lb.open{display:flex}
+.lb.in{opacity:1}
+.lb-stage{max-width:1020px;width:100%}
+.lb-frame{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);background:#0e2236;transform:scale(.95);transition:transform .32s cubic-bezier(.22,.61,.36,1)}
+.lb.in .lb-frame{transform:none}
+.lb-frame .photo{width:100%;height:auto;display:block}
+.lb-cap{display:flex;justify-content:space-between;align-items:flex-start;gap:1.2rem;color:#fff;margin-top:1rem}
+.lb-cap-text{display:flex;flex-direction:column;gap:.3rem}
+.lb-cap-text #lbTitle{font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:1.1rem}
+.lb-cap-text #lbDesc{font-family:"Inter",sans-serif;font-weight:400;font-size:.92rem;color:#b6c6da;max-width:560px}
+.lb-cap #lbCounter{color:#9fb2c9;font-size:.95rem;flex:none;font-family:"Oswald",sans-serif;font-weight:600;white-space:nowrap;margin-top:.2rem}
+.lb-close,.lb-nav{position:fixed;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;border-radius:50%;display:grid;place-items:center;transition:background .2s ease,transform .2s ease;z-index:2}
+.lb-close:hover{background:rgba(255,255,255,.26);transform:scale(1.07)}
+.lb-close{top:20px;right:24px;width:48px;height:48px;font-size:1.8rem;line-height:1}
+.lb-nav{top:50%;transform:translateY(-50%);width:54px;height:54px;font-size:2rem;line-height:1}
+.lb-nav:hover{background:rgba(255,255,255,.26);transform:translateY(-50%) scale(1.07)}
+.lb-prev{left:18px}.lb-next{right:18px}
+body.lb-lock{overflow:hidden}
+
+@media (max-width:980px){
+  .services,.steps,.adv{grid-template-columns:1fr 1fr}
+  #gallery .gallery-grid{grid-template-columns:1fr 1fr}
+  .calc{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  nav.main,.head-phone{display:none}
+  .burger{display:flex}
+  .brand img{width:38px;height:38px}
+  .brand .name{font-size:1.05rem}
+  .brand .sub{font-size:.58rem;letter-spacing:.12em}
+  .head-cta{gap:.6rem}
+  .head-cta .btn-primary{padding:.7rem 1rem;font-size:.82rem}
+  nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:.5rem 6vw 1rem;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  nav.main.open a{padding:.85rem 0;width:100%;border-bottom:1px solid var(--line)}
+  .services,.steps,.adv,.stats{grid-template-columns:1fr}
+  #gallery .gallery-grid{grid-template-columns:1fr}
+  .lb-nav{width:44px;height:44px;font-size:1.6rem}
+  .lb-close{width:42px;height:42px;top:12px;right:14px}
+  .lb{padding:8vh 12px}
+  .lb-prev{left:4px}.lb-next{right:4px}
+  .lb-cap{flex-direction:column;gap:.3rem}
+  .lb-cap #lbCounter{margin-top:0}
+  .stats .st{display:flex;align-items:baseline;gap:.8rem}
+  .stats .st .v{font-size:1.5rem}
+}
+/* ============ EFFECTS / ANIMATIONS ============ */
+/* scroll progress bar */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--orange),#ffb27a);box-shadow:0 0 12px rgba(239,106,31,.6);transition:width .08s linear}
+
+/* sticky header on scroll */
+header.site{transition:box-shadow .28s ease, background .28s ease}
+header.site.scrolled{box-shadow:0 10px 34px -20px rgba(14,38,66,.55)}
+header.site.scrolled .headrow{padding:.5rem 0}
+.headrow{transition:padding .28s ease}
+
+/* nav underline */
+nav.main a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--orange);transition:width .26s cubic-bezier(.22,.61,.36,1)}
+nav.main a:hover::after{width:100%}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* hero load sequence */
+.hero-inner>*{opacity:0;transform:translateY(26px);animation:heroIn .85s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-inner>*:nth-child(1){animation-delay:.10s}
+.hero-inner>*:nth-child(2){animation-delay:.22s}
+.hero-inner>*:nth-child(3){animation-delay:.34s}
+.hero-inner>*:nth-child(4){animation-delay:.46s}
+.stats{opacity:0;transform:translateY(26px);animation:heroIn .85s .6s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes heroIn{to{opacity:1;transform:none}}
+
+/* ambient motion in dark sections */
+.hero .grid-bg{animation:gridDrift 26s linear infinite}
+.calc-sec .grid-bg{animation:gridDrift 32s linear infinite}
+@keyframes gridDrift{to{background-position:46px 46px}}
+.hero .hex{animation:floatY 9s ease-in-out infinite}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+/* primary button sheen */
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary>*{position:relative;z-index:1}
+.btn-primary::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;
+  background:linear-gradient(110deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);pointer-events:none}
+.btn-primary:hover::after{animation:sheen .85s ease}
+@keyframes sheen{to{left:140%}}
+
+/* service icon micro-interaction */
+.svc .ico{transition:transform .28s ease,background .28s ease}
+.svc .ico svg{transition:stroke .28s ease}
+.svc:hover .ico{transform:translateY(-3px) rotate(-5deg);background:#fff4ec}
+.svc:hover .ico svg{stroke:var(--orange)}
+
+/* calculator total bump on change */
+.calc-result .total{transition:transform .25s ease}
+.calc-result .total.bump{animation:bump .34s ease}
+@keyframes bump{0%{transform:scale(1)}45%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+/* process + advantages hover lift */
+.step{transition:transform .25s ease,box-shadow .25s ease}
+.step:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.step .n{transition:color .25s ease}
+.step:hover .n{color:#ffd9c2}
+.adv .a{transition:transform .22s ease,box-shadow .22s ease}
+.adv .a:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.adv .a svg{transition:transform .22s ease}
+.adv .a:hover svg{transform:scale(1.12)}
+
+/* contact rows hover */
+.cinfo .ch .ci{transition:background .22s ease,transform .22s ease}
+.cinfo .ch:hover .ci{background:#fff4ec;transform:translateY(-2px)}
+.cinfo .ch:hover .ci svg{stroke:var(--orange)}
+.cinfo .ch .ci svg{transition:stroke .22s ease}
+
+/* floating WhatsApp pulse ring */
+.float .wa{position:relative}
+.float .wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.65}100%{transform:scale(1.85);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto;transition:none!important;animation:none!important}
+  .reveal,.hero-inner>*,.stats{opacity:1!important;transform:none!important}
+}
+
+/* ==================================================================
+   ВИЗУАЛЬНЫЕ УЛУЧШЕНИЯ — фирменный мотив «дорожная разметка»,
+   глубина, градиенты, акценты. (добавлено поверх базовых стилей)
+   ================================================================== */
+:root{
+  --road-dash:repeating-linear-gradient(90deg,#f4a261 0 34px,transparent 34px 64px);
+  --grad-orange:linear-gradient(135deg,#ff8a3d,#ef6a1f 55%,#d6560f);
+  --grad-steel:linear-gradient(135deg,#3f86c9,#1b4a7e);
+  --shadow-lg:0 30px 70px -34px rgba(14,38,66,.6);
+}
+
+/* ===== HERO: глубина, свечение, дорожная полоса снизу ===== */
+.hero{background:
+   radial-gradient(120% 90% at 82% -10%, #1c4f86 0%, transparent 55%),
+   linear-gradient(180deg,#0e2642 0%, #0b1f37 100%)}
+.hero-glow{position:absolute;right:-8%;top:-20%;width:60vw;height:60vw;max-width:740px;max-height:740px;
+   background:radial-gradient(circle at 50% 40%, rgba(239,106,31,.5), transparent 70%);
+   opacity:.5;pointer-events:none;animation:glowPulse 7s ease-in-out infinite;z-index:0}
+@keyframes glowPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.6;transform:scale(1.06)}}
+.hero .hex{opacity:.10}
+.hero .road{position:absolute;left:0;right:0;bottom:0;height:62px;z-index:1;
+   background:linear-gradient(180deg,transparent,rgba(4,12,22,.6));pointer-events:none;overflow:hidden}
+.hero .road::after{content:"";position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);
+   background:var(--road-dash);opacity:.85;
+   -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+           mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+   animation:roadMove 5.5s linear infinite}
+@keyframes roadMove{to{background-position:64px 0}}
+.hero h1 .accent{background:var(--grad-orange);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;color:transparent}
+.hero-trust{display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;margin-top:1.7rem}
+.hero-trust .t{display:inline-flex;align-items:center;gap:.5rem;color:#cdd9e8;font-size:.93rem;font-weight:500}
+.hero-trust .t svg{width:18px;height:18px;stroke:var(--orange);fill:none;flex:none}
+.hero-inner>*:nth-child(5){animation-delay:.58s}
+
+/* ===== STATS как стеклянные карточки с оранжевым акцентом ===== */
+.stats{background:transparent;border:0;gap:1rem;border-radius:0;overflow:visible}
+.stats .st{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:12px;
+   position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.stats .st::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--grad-orange)}
+.stats .st .v{font-size:2.05rem}
+.stats .st:hover{transform:translateY(-3px);border-color:rgba(239,106,31,.5)}
+
+/* ===== SERVICE: градиентная иконка, бейдж цены, гекс-водяной знак ===== */
+.svc{border-radius:16px}
+.svc .ico{background:var(--grad-steel);box-shadow:0 12px 24px -12px rgba(27,74,126,.7)}
+.svc .ico svg{stroke:#fff}
+.svc:hover .ico{background:var(--grad-orange);box-shadow:0 14px 26px -10px rgba(239,106,31,.65)}
+.svc:hover .ico svg{stroke:#fff}
+.svc .from{display:inline-block;align-self:flex-start;background:#fff4ec;color:var(--orange-600);border:1px solid #f6d3b9;
+   padding:.3rem .8rem;border-radius:999px;font-size:.9rem;margin:.55rem 0 1.1rem}
+.svc::after{content:"";position:absolute;right:-34px;bottom:-34px;width:150px;height:150px;
+   background:url('assets/emblem.png') center/contain no-repeat;opacity:.05;filter:grayscale(1);
+   pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+.svc:hover::after{opacity:.10;transform:rotate(8deg) scale(1.05)}
+.svc:hover{box-shadow:var(--shadow-lg)}
+
+/* ===== PRICE-NOTE: чуть выразительнее ===== */
+.price-note{background:linear-gradient(135deg,#fff7f0,#fff4ec);box-shadow:0 14px 30px -22px rgba(239,106,31,.5)}
+
+/* ===== PROCESS: верхний акцент-бар и градиентные номера ===== */
+.step{border-radius:16px}
+.step .n{background:var(--grad-orange);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;color:transparent;opacity:.22;font-size:3rem}
+.step:hover .n{opacity:.5}
+.step::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:0;height:3px;background:var(--grad-orange);
+   transform:scaleX(0);transform-origin:left;transition:transform .3s ease;border-radius:3px}
+.step:hover::before{transform:scaleX(1)}
+
+/* ===== ADVANTAGES: иконки в цветных чипах ===== */
+.adv .a{border-radius:14px}
+.adv .a svg{box-sizing:content-box;width:24px;height:24px;padding:9px;border-radius:11px;
+   background:#fff4ec;stroke:var(--orange);transition:background .22s ease,stroke .22s ease}
+.adv .a:hover svg{background:var(--orange);stroke:#fff}
+
+/* ===== CALCULATOR: тёплое свечение у блока результата ===== */
+.calc-result{box-shadow:0 0 0 1px rgba(239,106,31,.18),0 30px 60px -30px rgba(239,106,31,.4)}
+
+/* ===== FOOTER: дорожная разметка по верхнему краю ===== */
+footer.site{position:relative}
+footer.site::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+   background:var(--road-dash);opacity:.8}
+
+@media (max-width:760px){
+  .hero-trust{gap:.5rem 1.1rem}
+  .hero .road{height:46px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-glow,.hero .road::after{animation:none!important}
+}
+
+/* ===== ТЕМАТИЧЕСКИЙ СКРОЛЛБАР: асфальт с разметкой + трактор ===== */
+@supports not selector(::-webkit-scrollbar){
+  html{scrollbar-width:thin;scrollbar-color:#ef6a1f #2b3037}
+}
+::-webkit-scrollbar{width:20px;height:20px}
+::-webkit-scrollbar-track{
+  background:
+    repeating-linear-gradient(0deg,#f4c542 0 12px,transparent 12px 28px) center/3px 100% no-repeat,
+    linear-gradient(90deg,#363b42 0 3px,#2a2e34 3px,#22262b 50%,#2a2e34,#363b42 calc(100% - 3px));
+}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-thumb{
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2072%2064%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22body%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.35%22%20stop-color%3D%22%23f57f24%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22hood%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffd0a0%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.4%22%20stop-color%3D%22%23f78a30%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23cf5810%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22cab%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231f4e85%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230e2642%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22glass%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23dff0ff%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.5%22%20stop-color%3D%22%239cc3ec%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%235d8cc0%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22tire%22%20cx%3D%220.38%22%20cy%3D%220.34%22%20r%3D%220.75%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233a424d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%23222831%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2311151b%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rim%22%20cx%3D%220.4%22%20cy%3D%220.35%22%20r%3D%220.7%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22shadow%22%20cx%3D%220.5%22%20cy%3D%220.5%22%20r%3D%220.5%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220.45%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20ground%20shadow%20--%3E%0A%20%20%3Cellipse%20cx%3D%2236%22%20cy%3D%2258%22%20rx%3D%2230%22%20ry%3D%225.5%22%20fill%3D%22url%28%23shadow%29%22/%3E%0A%0A%20%20%3C%21--%20exhaust%20stack%20--%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%224.5%22%20height%3D%2214%22%20rx%3D%222.2%22%20fill%3D%22%233a4250%22/%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%222%22%20height%3D%2214%22%20rx%3D%221%22%20fill%3D%22%235b6776%22/%3E%0A%20%20%3Cellipse%20cx%3D%2224.2%22%20cy%3D%229%22%20rx%3D%223.2%22%20ry%3D%221.3%22%20fill%3D%22%231b2028%22/%3E%0A%0A%20%20%3C%21--%20rear%20big%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.5%22/%3E%0A%20%20%3Cg%20stroke%3D%22%230e1218%22%20stroke-width%3D%222.2%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2220%22%20y1%3D%2226%22%20x2%3D%2220%22%20y2%3D%2230%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%2254%22%20x2%3D%2220%22%20y2%3D%2258%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%224%22%20y1%3D%2242%22%20x2%3D%228%22%20y2%3D%2242%22/%3E%3Cline%20x1%3D%2232%22%20y1%3D%2242%22%20x2%3D%2236%22%20y2%3D%2242%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%229%22%20y1%3D%2231%22%20x2%3D%2211.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2229%22%20y1%3D%2253%22%20x2%3D%2231%22%20y2%3D%2255%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2231%22%20y1%3D%2231%22%20x2%3D%2228.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2211%22%20y1%3D%2253%22%20x2%3D%229%22%20y2%3D%2255%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%228.5%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%223%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2237%22%20rx%3D%224%22%20ry%3D%222.4%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20front%20small%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.3%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%225%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%221.8%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2253%22%20cy%3D%2245%22%20rx%3D%222.6%22%20ry%3D%221.6%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20chassis%20bar%20--%3E%0A%20%20%3Crect%20x%3D%2218%22%20y%3D%2244%22%20width%3D%2240%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%2323303f%22/%3E%0A%0A%20%20%3C%21--%20cab%20--%3E%0A%20%20%3Cpath%20d%3D%22M14%2038%20V24%20a4%204%200%200%201%204-4%20h12%20l5%206%20v12%20z%22%20fill%3D%22url%28%23cab%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M17%2035%20V25%20a2%202%200%200%201%202-2%20h9%20l3.5%204.5%20V35%20z%22%20fill%3D%22url%28%23glass%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M19%2024%20L31%2033%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20opacity%3D%220.5%22%20stroke-linecap%3D%22round%22/%3E%0A%0A%20%20%3C%21--%20hood%20/%20engine%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2039%20V28%20a3%203%200%200%201%203-3%20h16%20a6%206%200%200%201%206%206%20v8%20a3%203%200%200%201-3%203%20z%22%20fill%3D%22url%28%23hood%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M34%2028%20a2%202%200%200%201%202-2%20h15%20a5%205%200%200%201%205%205%20v1%20H34%20z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.22%22/%3E%0A%20%20%3C%21--%20grille%20--%3E%0A%20%20%3Cg%20stroke%3D%22%237a3608%22%20stroke-width%3D%221.1%22%20opacity%3D%220.7%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2257%22%20y1%3D%2232%22%20x2%3D%2257%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2255%22%20y1%3D%2232%22%20x2%3D%2255%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2253%22%20y1%3D%2232%22%20x2%3D%2253%22%20y2%3D%2240%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3C%21--%20headlight%20--%3E%0A%20%20%3Ccircle%20cx%3D%2258.5%22%20cy%3D%2231%22%20r%3D%222.1%22%20fill%3D%22%23ffe08a%22%20stroke%3D%22%23b9842a%22%20stroke-width%3D%220.8%22/%3E%0A%20%20%3C%21--%20body%20main%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2050%20V40%20h20%20l5%204%20v6%20z%22%20fill%3D%22url%28%23body%29%22/%3E%0A%3C/svg%3E%0A") center/15px auto no-repeat, rgba(239,106,31,.18);
+  border-radius:9px;border:2px solid transparent;background-clip:padding-box;min-height:46px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2072%2064%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22body%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.35%22%20stop-color%3D%22%23f57f24%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22hood%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffd0a0%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.4%22%20stop-color%3D%22%23f78a30%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23cf5810%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22cab%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%231f4e85%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230e2642%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22glass%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23dff0ff%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.5%22%20stop-color%3D%22%239cc3ec%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%235d8cc0%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22tire%22%20cx%3D%220.38%22%20cy%3D%220.34%22%20r%3D%220.75%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233a424d%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%23222831%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2311151b%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rim%22%20cx%3D%220.4%22%20cy%3D%220.35%22%20r%3D%220.7%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffb066%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c14e0d%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22shadow%22%20cx%3D%220.5%22%20cy%3D%220.5%22%20r%3D%220.5%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220.45%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23000%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20ground%20shadow%20--%3E%0A%20%20%3Cellipse%20cx%3D%2236%22%20cy%3D%2258%22%20rx%3D%2230%22%20ry%3D%225.5%22%20fill%3D%22url%28%23shadow%29%22/%3E%0A%0A%20%20%3C%21--%20exhaust%20stack%20--%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%224.5%22%20height%3D%2214%22%20rx%3D%222.2%22%20fill%3D%22%233a4250%22/%3E%0A%20%20%3Crect%20x%3D%2222%22%20y%3D%229%22%20width%3D%222%22%20height%3D%2214%22%20rx%3D%221%22%20fill%3D%22%235b6776%22/%3E%0A%20%20%3Cellipse%20cx%3D%2224.2%22%20cy%3D%229%22%20rx%3D%223.2%22%20ry%3D%221.3%22%20fill%3D%22%231b2028%22/%3E%0A%0A%20%20%3C%21--%20rear%20big%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%2217%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.5%22/%3E%0A%20%20%3Cg%20stroke%3D%22%230e1218%22%20stroke-width%3D%222.2%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2220%22%20y1%3D%2226%22%20x2%3D%2220%22%20y2%3D%2230%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%2254%22%20x2%3D%2220%22%20y2%3D%2258%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%224%22%20y1%3D%2242%22%20x2%3D%228%22%20y2%3D%2242%22/%3E%3Cline%20x1%3D%2232%22%20y1%3D%2242%22%20x2%3D%2236%22%20y2%3D%2242%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%229%22%20y1%3D%2231%22%20x2%3D%2211.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2229%22%20y1%3D%2253%22%20x2%3D%2231%22%20y2%3D%2255%22/%3E%0A%20%20%20%20%3Cline%20x1%3D%2231%22%20y1%3D%2231%22%20x2%3D%2228.5%22%20y2%3D%2233.5%22/%3E%3Cline%20x1%3D%2211%22%20y1%3D%2253%22%20x2%3D%229%22%20y2%3D%2255%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%228.5%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2220%22%20cy%3D%2242%22%20r%3D%223%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2216%22%20cy%3D%2237%22%20rx%3D%224%22%20ry%3D%222.4%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20front%20small%20wheel%20--%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22url%28%23tire%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%2211%22%20fill%3D%22none%22%20stroke%3D%22%230c1016%22%20stroke-width%3D%221.3%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%225%22%20fill%3D%22url%28%23rim%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2256%22%20cy%3D%2248%22%20r%3D%221.8%22%20fill%3D%22%237a3608%22/%3E%0A%20%20%3Cellipse%20cx%3D%2253%22%20cy%3D%2245%22%20rx%3D%222.6%22%20ry%3D%221.6%22%20fill%3D%22%23fff%22%20opacity%3D%220.18%22/%3E%0A%0A%20%20%3C%21--%20chassis%20bar%20--%3E%0A%20%20%3Crect%20x%3D%2218%22%20y%3D%2244%22%20width%3D%2240%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%2323303f%22/%3E%0A%0A%20%20%3C%21--%20cab%20--%3E%0A%20%20%3Cpath%20d%3D%22M14%2038%20V24%20a4%204%200%200%201%204-4%20h12%20l5%206%20v12%20z%22%20fill%3D%22url%28%23cab%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M17%2035%20V25%20a2%202%200%200%201%202-2%20h9%20l3.5%204.5%20V35%20z%22%20fill%3D%22url%28%23glass%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M19%2024%20L31%2033%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.4%22%20opacity%3D%220.5%22%20stroke-linecap%3D%22round%22/%3E%0A%0A%20%20%3C%21--%20hood%20/%20engine%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2039%20V28%20a3%203%200%200%201%203-3%20h16%20a6%206%200%200%201%206%206%20v8%20a3%203%200%200%201-3%203%20z%22%20fill%3D%22url%28%23hood%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M34%2028%20a2%202%200%200%201%202-2%20h15%20a5%205%200%200%201%205%205%20v1%20H34%20z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.22%22/%3E%0A%20%20%3C%21--%20grille%20--%3E%0A%20%20%3Cg%20stroke%3D%22%237a3608%22%20stroke-width%3D%221.1%22%20opacity%3D%220.7%22%3E%0A%20%20%20%20%3Cline%20x1%3D%2257%22%20y1%3D%2232%22%20x2%3D%2257%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2255%22%20y1%3D%2232%22%20x2%3D%2255%22%20y2%3D%2240%22/%3E%3Cline%20x1%3D%2253%22%20y1%3D%2232%22%20x2%3D%2253%22%20y2%3D%2240%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3C%21--%20headlight%20--%3E%0A%20%20%3Ccircle%20cx%3D%2258.5%22%20cy%3D%2231%22%20r%3D%222.1%22%20fill%3D%22%23ffe08a%22%20stroke%3D%22%23b9842a%22%20stroke-width%3D%220.8%22/%3E%0A%20%20%3C%21--%20body%20main%20--%3E%0A%20%20%3Cpath%20d%3D%22M33%2050%20V40%20h20%20l5%204%20v6%20z%22%20fill%3D%22url%28%23body%29%22/%3E%0A%3C/svg%3E%0A") center/15px auto no-repeat, rgba(239,106,31,.32);
+}
+
+/* ===== СВОЙ СКРОЛЛБАР: дорога + крупный 3D-трактор с колёсами ===== */
+.tractor-rail{position:fixed;top:0;right:0;width:18px;height:100vh;z-index:90;display:none;cursor:pointer;
+  box-shadow:-10px 0 26px -18px rgba(0,0,0,.55);
+  background:
+    repeating-linear-gradient(0deg,#f4c542 0 10px,transparent 10px 26px) center/2px 100% no-repeat,
+    linear-gradient(90deg,#3a4048 0 4px,#2a2e34 4px,#21252b 50%,#2a2e34,#3a4048 calc(100% - 4px));}
+.tractor-thumb{position:absolute;left:0;right:0;top:0;height:62px;display:grid;place-items:center;cursor:grab;
+  will-change:transform;touch-action:none}
+.tractor-thumb:active{cursor:grabbing}
+.tractor-svg{width:13px;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.55))}
+.tractor-svg #wheelRear{transform-box:view-box;transform-origin:20px 42px}
+.tractor-svg #wheelFront{transform-box:view-box;transform-origin:56px 48px}
+html.tractor-on{scrollbar-width:none}
+html.tractor-on::-webkit-scrollbar{width:0;height:0;display:none}
+html.tractor-on .tractor-rail{display:block}
+html.tractor-on .float{right:28px}
+html.tractor-on body{padding-right:18px}
+@media (prefers-reduced-motion:reduce){.tractor-thumb{transition:none!important}}

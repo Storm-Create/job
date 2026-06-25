@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Админ-панель — ГРАД СТРОЙ 5</title>
+<link rel="icon" href="assets/favicon.png" type="image/png" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+<link rel="stylesheet" href="assets/admin.css" />
+</head>
+<body class="admin-body">
+
+<!-- Экран блокировки (если вход не выполнен) -->
+<div class="admin-locked" id="adminLocked" style="display:none">
+  <h1>Доступ закрыт</h1>
+  <p>Эта страница доступна только администратору. Войдите через форму «Заявка на замер» на сайте.</p>
+  <a class="btn btn-primary" href="index.html">На главную</a>
+</div>
+
+<!-- Приложение админки -->
+<div id="adminApp" style="display:none">
+
+  <header class="admin-top">
+    <div class="wrap">
+      <div class="admin-brand">ГРАД СТРОЙ <b>5</b><span class="tag">админ-панель</span></div>
+      <div class="admin-actions">
+        <button class="btn-sm ghost" id="btnPreview">Открыть сайт</button>
+        <button class="btn-sm ghost" id="btnReset">Сбросить</button>
+        <button class="btn-sm ghost" id="btnExport">Экспорт JSON</button>
+        <button class="btn-sm orange" id="btnSave">Сохранить</button>
+        <button class="btn-sm" id="btnLogout">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="admin-tabs">
+    <div class="wrap">
+      <button data-tab="prices" class="active">Прайс-лист</button>
+      <button data-tab="calc">Калькулятор</button>
+      <button data-tab="contacts">Контакты</button>
+      <button data-tab="texts">Тексты</button>
+    </div>
+  </nav>
+
+  <main class="admin-main">
+    <div class="wrap">
+
+      <!-- ПРАЙС-ЛИСТ -->
+      <section class="admin-panel active" id="panel-prices">
+        <div class="admin-hint">ℹ️ Цену пишите как на сайте — например «700 ₽», «от 600 ₽», «По запросу». Для строки «Бесплатно» подсветка задаётся в файле данных; обычные цены менять можно свободно.</div>
+        <div id="priceEditor"></div>
+        <button class="btn-sm orange" id="addSection">+ Добавить раздел</button>
+      </section>
+
+      <!-- КАЛЬКУЛЯТОР -->
+      <section class="admin-panel" id="panel-calc">
+        <div class="admin-hint">ℹ️ Базовые ставки за м² и доплаты, которые использует калькулятор стоимости на главной.</div>
+        <div class="card">
+          <h3>Базовые ставки, ₽ за м²</h3>
+          <div class="grid2">
+            <div class="fld"><label>Асфальт (база)</label><input type="number" id="r_asphalt" /></div>
+            <div class="fld"><label>Крошка (база)</label><input type="number" id="r_chippings" /></div>
+            <div class="fld"><label>Брусчатка бетонная (база)</label><input type="number" id="r_pavers" /></div>
+          </div>
+          <div class="grid2">
+            <div class="fld"><label>Коэффициент: полимерная брусчатка</label><input type="number" step="0.01" id="r_polymer" /></div>
+            <div class="fld"><label>Коэффициент: гранитная брусчатка</label><input type="number" step="0.01" id="r_granite" /></div>
+          </div>
+          <p class="muted">Цена полимерной/гранитной = база брусчатки × коэффициент.</p>
+        </div>
+        <div class="card">
+          <h3>Доплаты и параметры</h3>
+          <div class="grid2">
+            <div class="fld"><label>Основание под мощение, ₽/м²</label><input type="number" id="e_paverPrep" /></div>
+            <div class="fld"><label>Бордюр, ₽ за п.м.</label><input type="number" id="e_curbPerM" /></div>
+            <div class="fld"><label>Доставка самосвалом, ₽</label><input type="number" id="e_delivery" /></div>
+            <div class="fld"><label>Вывоз мусора, ₽</label><input type="number" id="e_cleanup" /></div>
+            <div class="fld"><label>Минимальный заказ, ₽</label><input type="number" id="e_minOrder" /></div>
+            <div class="fld"><label>Подготовка основания, %</label><input type="number" id="e_prepPct" /></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- КОНТАКТЫ -->
+      <section class="admin-panel" id="panel-contacts">
+        <div class="admin-hint">ℹ️ Эти контакты подставляются по всему сайту: в шапке, подвале, секции контактов и плавающих кнопках.</div>
+        <div class="card">
+          <h3>Контактные данные</h3>
+          <div class="grid2">
+            <div class="fld"><label>Телефон (как показывать)</label><input id="c_phoneDisplay" placeholder="+7 985 006-61-45" /></div>
+            <div class="fld"><label>Телефон для ссылки tel:</label><input id="c_phoneTel" placeholder="+79850066145" /></div>
+            <div class="fld"><label>WhatsApp (номер без +)</label><input id="c_whatsapp" placeholder="79850066145" /></div>
+            <div class="fld"><label>Telegram (ссылка)</label><input id="c_telegram" placeholder="https://t.me/..." /></div>
+            <div class="fld"><label>Email</label><input id="c_email" placeholder="mail@example.ru" /></div>
+            <div class="fld"><label>Режим работы</label><input id="c_hours" placeholder="Ежедневно, 8:00 — 20:00" /></div>
+            <div class="fld"><label>Регион работы</label><input id="c_area" placeholder="Москва и Московская область" /></div>
+          </div>
+          <div class="fld"><label>Строка вверху сайта</label><input id="c_topline" /></div>
+          <p class="muted">⚠️ Внимание: рабочий телефон используется как пароль для входа в админку. Если измените его, для входа используйте новый номер.</p>
+        </div>
+      </section>
+
+      <!-- ТЕКСТЫ -->
+      <section class="admin-panel" id="panel-texts">
+        <div class="admin-hint">ℹ️ Заголовки и описания основных блоков главной страницы.</div>
+        <div class="card">
+          <h3>Главный экран</h3>
+          <div class="fld"><label>Надзаголовок</label><input id="t_heroEyebrow" /></div>
+          <div class="grid2">
+            <div class="fld"><label>Заголовок (основная часть)</label><input id="t_heroTitleMain" /></div>
+            <div class="fld"><label>Заголовок (выделенное слово)</label><input id="t_heroTitleAccent" /></div>
+          </div>
+          <div class="fld"><label>Подзаголовок</label><textarea id="t_heroLead"></textarea></div>
+        </div>
+        <div class="card">
+          <h3>Калькулятор</h3>
+          <div class="fld"><label>Надзаголовок</label><input id="t_calcEyebrow" /></div>
+          <div class="fld"><label>Заголовок</label><input id="t_calcTitle" /></div>
+          <div class="fld"><label>Описание</label><textarea id="t_calcSub"></textarea></div>
+        </div>
+        <div class="card">
+          <h3>Прайс-лист</h3>
+          <div class="fld"><label>Надзаголовок</label><input id="t_pricesEyebrow" /></div>
+          <div class="fld"><label>Заголовок</label><input id="t_pricesTitle" /></div>
+          <div class="fld"><label>Описание</label><textarea id="t_pricesSub"></textarea></div>
+          <div class="fld"><label>Плашка над прайсом</label><input id="t_priceNote" /></div>
+        </div>
+        <div class="card">
+          <h3>Контакты</h3>
+          <div class="fld"><label>Надзаголовок</label><input id="t_contactsEyebrow" /></div>
+          <div class="fld"><label>Заголовок</label><input id="t_contactsTitle" /></div>
+          <div class="fld"><label>Описание</label><textarea id="t_contactsSub"></textarea></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div class="admin-saved" id="adminSaved">Сохранено</div>
+
+<script src="assets/content.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>
